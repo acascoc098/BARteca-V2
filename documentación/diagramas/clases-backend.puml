@@ -2,14 +2,42 @@
 
 class Bar{
     - id : Long
+    - nombre : String
+    - provincia : String
+    - ciudad : String
+    - direccion : String
+    - calificacion : Integer
+    - telefono : String
+    - correo : String
+    - verDetalle() : void
 }
 
 class Usuario{
     - id : Long
     - nombre : String
+    - username : String
     - password : String
     - correo : String
     - telefono : String
+    - verInfo() : void
+}
+
+class Invitado{
+}
+
+class Registro{
+    - nombre : String
+    - username : String
+    - password : String
+    - correo : String
+    - telefono : String
+    - registrarse(nombre,correo,...) : void
+}
+
+class Logeo{
+    - usuario : String
+    - contraseña : String
+    - logearse(usuario,contraseña) : void
 }
 
 class Reserva{
@@ -19,10 +47,35 @@ class Reserva{
     - comensales : int
     - fecha : String
     - hora : Stgring
+    - verDetalle() : void
 }
 
-Usuario "1" --> "0..*" Reserva : Realiza
+class ListBares{
+    - bares : List<Bar>
+    - mostrarBares() : void
+    - añadirBar() : void
+    - borrarBar() : void
+}
 
-Reserva "1" o-- "1" Bar : Tiene
+class ListReservas{
+    - reservas : List<Rserva>
+    - mostrarReservas() : void
+    - añadirReserva() : void
+    - borrarReserva() : void
+}
+
+Invitado --> Registro : Realiza
+
+Registro --> Usuario : Crea
+
+Usuario --> Logeo : Realiza
+
+Usuario  -->  ListBares : Accede
+Usuario  -->  ListReservas : Accede
+
+ListBares "1" --> "0..*" Bar : Tiene
+ListReservas "1" --> "0..*" Reserva : Tiene
+
+Reserva  o--  Bar : Tiene
 
 @enduml
