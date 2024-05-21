@@ -146,7 +146,7 @@ En estos diagramas mostramos como se comporta nuestra aplicación junto a la API
 
 ## DIAGRAMA DE CLASES
 
-![Diagramas de clase](image.png)
+![Diagramas de clase](./documentación/diagramas/image.png)
 
 ## DIAGRAMA DE ARQUITECTURA
 
