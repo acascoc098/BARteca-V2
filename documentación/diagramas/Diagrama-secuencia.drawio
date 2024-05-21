@@ -1,0 +1,163 @@
+<mxfile host="app.diagrams.net" modified="2024-04-26T11:22:47.717Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="zjqsOeEWCoOtuZQ-cDl_" version="24.2.8" type="device">
+  <diagram name="Página-1" id="PX6BeLR403J_-Brc9Yjy">
+    <mxGraphModel dx="1434" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Usuario" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" parent="1" vertex="1">
+          <mxGeometry width="150" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="BARteca" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" parent="1" vertex="1">
+          <mxGeometry x="264" width="150" height="910" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="API" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" parent="1" vertex="1">
+          <mxGeometry x="612" width="150" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Logearse o Registrarse" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="217" y="107" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6" value="Realizar autenticación" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="3" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="523" y="159" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="Respuesta de autenticación" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;" parent="1" source="4" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="523" y="211" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8" value="Mensaje de inicio de sesión" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;" parent="1" source="3" target="2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="217" y="263" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="Acceder a la aplicación" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="217" y="315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" value="Consultar bares" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="523" y="440" />
+            </Array>
+            <mxPoint x="338.5" y="440" as="sourcePoint" />
+            <mxPoint x="686.5" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" value="Respuesta con la lista de bares" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="523" y="480" />
+            </Array>
+            <mxPoint x="686.5" y="480" as="sourcePoint" />
+            <mxPoint x="338.5" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-11" value="Ver listado de bares" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="222" y="400" />
+            </Array>
+            <mxPoint x="80" y="400" as="sourcePoint" />
+            <mxPoint x="344" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-12" value="Ver listado de reservas" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="217" y="550" />
+            </Array>
+            <mxPoint x="70" y="550" as="sourcePoint" />
+            <mxPoint x="334" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-14" value="Consultar reservas" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="524.5" y="590" />
+            </Array>
+            <mxPoint x="340" y="590" as="sourcePoint" />
+            <mxPoint x="688" y="590" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-15" value="Respuesta con la lista de reservas" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="524.5" y="630" />
+            </Array>
+            <mxPoint x="688" y="630" as="sourcePoint" />
+            <mxPoint x="340" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-16" value="Añadir bar" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="222" y="720" />
+            </Array>
+            <mxPoint x="80" y="720" as="sourcePoint" />
+            <mxPoint x="344" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-17" value="Añadir bar" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="512" y="740" />
+            </Array>
+            <mxPoint x="338.5" y="740" as="sourcePoint" />
+            <mxPoint x="686.5" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-18" value="Borrar bar" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="222" y="770" />
+            </Array>
+            <mxPoint x="80" y="770" as="sourcePoint" />
+            <mxPoint x="344" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-19" value="Borrar bar" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="512" y="790" />
+            </Array>
+            <mxPoint x="338.5" y="790" as="sourcePoint" />
+            <mxPoint x="686.5" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-20" value="Hacer reserva" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="222" y="820" />
+            </Array>
+            <mxPoint x="74.5" y="820" as="sourcePoint" />
+            <mxPoint x="338.5" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QvXOBfYi5pwV4VFgl9Bp-21" value="Hacer reserva" style="verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="512" y="840" />
+            </Array>
+            <mxPoint x="338.5" y="840" as="sourcePoint" />
+            <mxPoint x="686.5" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

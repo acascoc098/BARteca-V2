@@ -1,0 +1,28 @@
+@startuml
+
+class Bar{
+    - id : Long
+}
+
+class Usuario{
+    - id : Long
+    - nombre : String
+    - password : String
+    - correo : String
+    - telefono : String
+}
+
+class Reserva{
+    - id : Long
+    - usuario : Usuario
+    - bar : Bar
+    - comensales : int
+    - fecha : String
+    - hora : Stgring
+}
+
+Usuario "1" --> "0..*" Reserva : Realiza
+
+Reserva "1" o-- "1" Bar : Tiene
+
+@enduml

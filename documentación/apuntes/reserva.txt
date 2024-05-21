@@ -1,0 +1,77 @@
+@Entity
+@Data
+@NoArgsConstructor
+public class Reserva {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    private Usuario usuario;
+
+    private Bar bar;
+
+    private int comensales;
+
+    private String fecha;
+
+    private String hora;
+
+}
+
+/*REPOSITORIO*/
+
+@Repository
+public interface RepositorioReserva extends JpaRepository<Reserva , Integer>{
+    
+}
+
+/*CONTROLLER*/
+
+@RestController
+@RequestMapping("/barteca")
+public class ServicioReserva {
+    @Autowired
+    RepositorioReserva repositorioReserva;
+    @Autowired
+    RepositorioUsuario repositorioUsuario;
+
+    @GetMapping("reserva")
+    List<Reserva> findAll() {
+        return repositorioReserva.findAll();
+    }
+
+    @GetMapping("reserva/{id}")
+    Reserva findById(@PathVariable(value = "id") Integer id) {
+        return repositorioReserva.findById(id).get();
+    }
+
+    
+
+    @PostMapping("reserva")
+    Reserva create(@RequestBody Reserva reservaBody) {
+
+        return repositorioReserva.save(reservaBody);
+    }
+
+    @DeleteMapping("reserva/{id}")
+    void delete(@PathVariable(value = "id") Integer id) {
+        repositorioReserva.deleteById(id);     
+    }
+
+    @PutMapping("reserva/{id}")
+    Reserva update(@PathVariable(value = "id") Integer id, @RequestBody Reserva nReserva) {
+
+        Reserva reservaModificada = findById(id);
+        if (reservaModificada != null) {
+	   reservaModificada.setComensales(nReserva.getComensales());
+	   reservaModificada.setFecha(nReserva.getFecha());
+	   reservaModificada.setHora(nReserva.getHora());
+           reservaModificada.setUsuario(nReserva.getUsuario());
+	   reservaModificada.setBar(nReserva.getBar());
+           return repositorioReserva.save(reservaModificada);
+        } else
+            return reservaModificada;
+    }
+}

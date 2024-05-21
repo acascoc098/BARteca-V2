@@ -1,0 +1,79 @@
+@Entity
+@Data
+@NoArgsConstructor
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(length = 40, nullable = false)
+    private String nombre;
+
+    @Column(length = 75, nullable = false)
+    private String password;
+
+    @Column(unique = true, length = 70, nullable = false)
+    private String correo;
+
+    @Column(length = 9, nullable = false)
+    private String telefono;
+  
+}
+
+
+/*REPOSITORIO*/
+
+@Repository
+public interface RepositorioUsuario extends JpaRepository <Usuario , Integer>{
+    public Usuario findByCorreo(String correo);
+}
+
+/*CONTROLLER*/
+
+@RestController
+@RequestMapping("/barteca")
+public class ControllerUsuario {
+    @Autowired
+    RepositorioUsuario repositorioUsuario;
+
+    @GetMapping("usuario")
+    List<Usuario> findAll(){
+        return repositorioUsuario.findAll();
+    }
+
+    @GetMapping("usuario/{id}")
+    Usuario findById(@PathVariable (value = "id") Integer id){
+        return repositorioUsuario.findById(id).get();
+    }
+    @GetMapping("usuario/correo/{correo}")
+    Usuario findByEmail(@PathVariable (value = "correo") String correo){
+        return repositorioUsuario.findByCorreo(correo);
+    }
+    
+    @PostMapping("usuario")
+    Usuario create(@RequestBody Usuario usuarioBody){
+      return repositorioUsuario.save(usuarioBody);
+    }
+    
+    @DeleteMapping("usuario/{id}")
+    void delete(@PathVariable (value = "id")Integer id){
+        repositorioUsuario.deleteById(id);
+    }
+
+    @PutMapping("usuario/{id}")
+    Usuario update(@PathVariable(value= "id")Integer id , @RequestBody Usuario nUsuario){
+
+        Usuario usuarioModificado = findById(id);
+
+        if(usuarioModificado != null){
+            usuarioModificado.setCorreo(nUsuario.getCorreo());
+            usuarioModificado.setNombre(nUsuario.getNombre());
+            usuarioModificado.setPassword(nUsuario.getPassword());
+            usuarioModificado.setTelefono(nUsuario.getTelefono());
+            return repositorioUsuario.save(usuarioModificado);
+        }
+        return usuarioModificado;
+    }
+    
+}
