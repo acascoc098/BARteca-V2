@@ -131,3 +131,23 @@ Andrea Castilla Cocera
    1. Automatización: Puede ser utilizado en scripts de automatización y generar diagramas dinámicamente.
 
    1. Exportación: Permite exportar diagramas en múltiples formatos gráficos como PNG, SVG, y PDF, lo que facilita su inclusión en documentación y presentaciones.
+
+# **DIAGRAMAS**
+
+En estos diagramas mostramos como se comporta nuestra aplicación junto a la API.
+
+## DIAGRAMAS DE SECUENCIA
+
+![Diagramas de secuencia](./documentación/diagramas/DSecuencia-V2.png)
+
+## DIAGRAMA DE CASO DE USO
+
+![Diagramas de casos de uso](./documentación/diagramas/diagrama-usos.png)
+
+## DIAGRAMA DE CLASES
+
+![Diagramas de clase](image.png)
+
+## DIAGRAMA DE ARQUITECTURA
+
+![Diagrama de arquitectura](./documentación/diagramas/Diagrama-arquitectura.png)

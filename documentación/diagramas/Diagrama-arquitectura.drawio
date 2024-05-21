@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" modified="2024-05-21T09:14:55.332Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="f72cc1bdqBZ7cVk7pz2W" version="24.4.4" type="device">
+  <diagram name="Página-1" id="zLVqSbIwcQzm8xF_FCDX">
+    <mxGraphModel dx="1434" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-3" target="2Az9BTN1pBY0le3ChEKT-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-3" value="&lt;b&gt;BBDD&lt;/b&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/databases.svg;" vertex="1" parent="1">
+          <mxGeometry x="925" y="600" width="50" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-4" target="2Az9BTN1pBY0le3ChEKT-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-34" value="Peticiones sql" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2Az9BTN1pBY0le3ChEKT-8">
+          <mxGeometry x="-0.3171" y="-2" relative="1" as="geometry">
+            <mxPoint x="2" y="29" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-4" target="2Az9BTN1pBY0le3ChEKT-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-4" target="2Az9BTN1pBY0le3ChEKT-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-4" value="&lt;b&gt;API&lt;/b&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/internet_cloud.svg;" vertex="1" parent="1">
+          <mxGeometry x="890" y="344.7" width="120" height="75.6" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-5" target="2Az9BTN1pBY0le3ChEKT-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-32" value="Peticiones usuario" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2Az9BTN1pBY0le3ChEKT-9">
+          <mxGeometry x="0.0937" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-5" target="2Az9BTN1pBY0le3ChEKT-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-5" target="2Az9BTN1pBY0le3ChEKT-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-5" target="2Az9BTN1pBY0le3ChEKT-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-5" value="&lt;b&gt;BARteca&lt;/b&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/home_page.svg;" vertex="1" parent="1">
+          <mxGeometry x="180" y="333.5" width="108.89" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Az9BTN1pBY0le3ChEKT-7" target="2Az9BTN1pBY0le3ChEKT-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-33" value="Peticiones HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2Az9BTN1pBY0le3ChEKT-10">
+          <mxGeometry x="0.1351" y="-3" relative="1" as="geometry">
+            <mxPoint x="1" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-7" value="RED" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/internet_globe.svg;" vertex="1" parent="1">
+          <mxGeometry x="519.5" y="317.5" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-26" value="REACT" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=top;verticalAlign=bottom;image=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png;labelPosition=center;align=center;" vertex="1" parent="1">
+          <mxGeometry x="182.67" y="180" width="103.54" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-27" value="PRIMEREACT" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://cdn.worldvectorlogo.com/logos/primereact-1.svg;" vertex="1" parent="1">
+          <mxGeometry x="188.48" y="530" width="91.93" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-28" value="AXIOS" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://cdn.icon-icons.com/icons2/2699/PNG/512/axios_logo_icon_168545.png;" vertex="1" parent="1">
+          <mxGeometry x="40" y="343.75" width="77.5" height="77.5" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-29" value="DOCKER" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=top;verticalAlign=bottom;image=https://static-00.iconduck.com/assets.00/docker-icon-icon-2048x1479-cres2he9.png;labelPosition=center;align=center;" vertex="1" parent="1">
+          <mxGeometry x="901.59" y="210" width="96.81" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-30" value="SPRING" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://static-00.iconduck.com/assets.00/spring-icon-2048x2045-yufnoc34.png;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="237.5" width="80.15" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2Az9BTN1pBY0le3ChEKT-31" value="" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://www.svgrepo.com/show/303251/mysql-logo.svg;" vertex="1" parent="1">
+          <mxGeometry x="740" y="569.5" width="110" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
