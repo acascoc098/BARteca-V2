@@ -24,10 +24,7 @@ public class WebConfig {
       amb.jdbcAuthentication()
           .dataSource(dataSource)
           .usersByUsernameQuery("select username, password "+
-              "from usuario where username = ?")
-          .authoritiesByUsernameQuery("select u.username as 'authority' "+
-              "from usuario u " +
-              "where username = ?");
+              "from usuario where username = ?");
     }
 
     @Bean
