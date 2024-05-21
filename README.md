@@ -1,4 +1,8 @@
-﻿Andrea Castilla Cocera
+﻿# PROYECTO FIN DE GRADO
+
+[Enlace al repositorio V2](https://github.com/acascoc098/BARteca-V2.git)
+
+Andrea Castilla Cocera
 2º DAM
 
 ![Portada](documentación/docs/Captura.png)
@@ -22,6 +26,8 @@
    Veamos que encontramos en cada parte.
 
 ### ***FRONTEND***
+
+   [Enlace frontend V1](https://github.com/acascoc098/project-frontend-V1.git)
 
    → ***React***
 
@@ -48,7 +54,7 @@
 
 ### ***BACKEND***
 
-   [Enlace del backend](https://github.com/acascoc098/project-backend.git)
+   [Enlace del backend V1](https://github.com/acascoc098/project-backend.git)
 
    → ***Spring***
 

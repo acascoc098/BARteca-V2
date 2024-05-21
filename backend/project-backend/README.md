@@ -1,3 +1,5 @@
+# Información
+
 **Autora:** Andrea Castilla Cocera
 
 **Grado:** Desarrollo de Aplicaciones Multiplataforma
@@ -13,7 +15,7 @@
 
 ### Repositorio del backend
 
-[Backend proyecto final](https://github.com/acascoc098/project-backend.git)
+[Backend proyecto final V1](https://github.com/acascoc098/project-backend.git)
 
 # INTRODUCCIÓN
 
