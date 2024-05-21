@@ -1,6 +1,0 @@
-[submodule "BARteca"]
-	path = BARteca
-	url = https://github.com/acascoc098/project-backend.git
-[submodule "project-backend"]
-	path = project-backend
-	url = https://github.com/acascoc098/project-backend.git
