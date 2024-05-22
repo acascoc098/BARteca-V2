@@ -19,7 +19,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-        @Override
+    @Autowired 
+    DataSource dataSource;
+    
+    @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:3000") // Permitir solo el frontend local
@@ -55,10 +58,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // Configuración de la autenticación JDBC
-        // auth.jdbcAuthentication()
-        //         .dataSource(dataSource)
-        //         .usersByUsernameQuery("select username, password from usuario where username = ?");
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select username, password from usuario where username = ?");
     }
 
      /*   @Override

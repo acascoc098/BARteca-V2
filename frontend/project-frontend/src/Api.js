@@ -3,13 +3,13 @@ import axios from 'axios';
 const URL = 'http://localhost:8080/barteca';
 
 const getBares = async (state) => {
-  const token = localStorage.getItem('token'); // Obtener el token del almacenamiento local
+  const token = localStorage.getItem('token'); // Obtener el token
   try {
     const req = await axios.get(URL + '/bar', {
       headers: {
-        'Authorization': `Bearer ${token}` // Añadir el token en el header de la solicitud
+        'Authorization': `Bearer ${token}`
       },
-      withCredentials: true // Incluir cookies en la solicitud
+      withCredentials: true
     });
     console.log(req);
     state(req.data);
@@ -18,4 +18,20 @@ const getBares = async (state) => {
   }
 };
 
-export default getBares;
+const getBar = async (id, setState) => {
+    const token = localStorage.getItem('token');
+    try {
+      const req = await axios.get(`${URL}/bar/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        withCredentials: true
+      });
+      console.log(req);
+      setState(req.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+export { getBares, getBar };
