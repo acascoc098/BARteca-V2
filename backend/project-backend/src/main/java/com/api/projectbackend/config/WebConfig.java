@@ -11,12 +11,65 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @EnableWebSecurity
 @Configuration
-public class WebConfig {
-    @Autowired 
+public class WebConfig implements WebMvcConfigurer {
+
+        @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000") // Permitir solo el frontend local
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true); // Permitir el envío de cookies o credenciales
+    }
+
+    @Bean
+    BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    SecurityFilterChain filter(HttpSecurity http) throws Exception {
+        return http
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/barteca/**", "/usuario/**", "/bar/**", "/reserva/**").permitAll()
+                )
+                .exceptionHandling((exception) -> exception
+                        .accessDeniedPage("/denegado"))
+                .formLogin((formLogin) -> formLogin
+                        .permitAll())
+                .rememberMe(Customizer.withDefaults())
+                .logout((logout) -> logout
+                        .invalidateHttpSession(true)
+                        .logoutSuccessUrl("/")
+                        .permitAll())
+                .csrf((csrf) -> csrf.disable())
+                .cors(Customizer.withDefaults())
+                .build();
+    }
+
+    @Autowired
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // Configuración de la autenticación JDBC
+        // auth.jdbcAuthentication()
+        //         .dataSource(dataSource)
+        //         .usersByUsernameQuery("select username, password from usuario where username = ?");
+    }
+
+     /*   @Override
+        public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .allowedHeaders("*");
+        }
+
+    /*@Autowired 
     DataSource dataSource;
     
     @Autowired
@@ -33,7 +86,7 @@ public class WebConfig {
     }
 
     @Bean
-      public SecurityFilterChain filter(HttpSecurity http) throws Exception {
+    SecurityFilterChain filter(HttpSecurity http) throws Exception {
 
               return http
                       .authorizeHttpRequests((requests) -> requests
@@ -58,6 +111,6 @@ public class WebConfig {
                                 .disable()
                       ).build();
 
-      }
+      }*/
 
 }
