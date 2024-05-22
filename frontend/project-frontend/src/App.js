@@ -8,6 +8,7 @@ import { DataScroller } from 'primereact/datascroller';
 import Login from './components/Login';
 
 function App() {
+
   const [bares, setBares] = useState([]);
   const [reservas, setReservas] = useState([]);
   //const [isAuthenticated, setIsAuthenticated] = useState(false);

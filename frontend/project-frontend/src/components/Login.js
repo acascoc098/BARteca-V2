@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
+
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,6 +15,7 @@ const Login = ({ onLogin }) => {
       const response = await axios.post('http://localhost:8080/login', { username, password });
       localStorage.setItem('token', response.data.token);
       onLogin();
+      navigate("/bar");
     } catch (error) {
       console.error('Error logging in:', error);
     }
