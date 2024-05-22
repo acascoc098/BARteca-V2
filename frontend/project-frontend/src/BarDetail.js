@@ -17,7 +17,7 @@ function BarDetail({ barId }) {
       <h1>{bar.nombre}</h1>
       <p>{bar.descripcion}</p>
       <p>{bar.calificacion}</p>
-      <p>{bar.correso}</p>
+      <p>{bar.correo}</p>
     </div>
   );
 }
