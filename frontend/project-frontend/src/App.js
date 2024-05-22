@@ -2,9 +2,10 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { getBares, getReservas } from './Api';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import BarDetail from './BarDetail';
+import BarDetail from './components/BarDetail';
+import ReservaDetail from './components/ReservaDetail';
 import { DataScroller } from 'primereact/datascroller';
-import Login from './Login';
+import Login from './components/Login';
 
 function App() {
   const [bares, setBares] = useState([]);
@@ -54,7 +55,7 @@ function App() {
             <Route path="/bar" element={<DataScroller value={bares} itemTemplate={itemTemplateB} rows={5} buffer={0.5} header='Bares' />} />
             <Route path="/reserva" element={<DataScroller value={reservas} itemTemplate={itemTemplateR} rows={5} buffer={0.5} header='Reserva' />} />
             <Route path="/bar/:id" element={<BarDetail />} />
-            <Route path="/reserva/:id" element={<BarDetail />} />
+            <Route path="/reserva/:id" element={<ReservaDetail />} />
           </Routes>
       </div>
     </Router>

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getBar } from './Api';
+import { getBar } from '../Api';
+import { useParams } from 'react-router-dom';
 
-function BarDetail({ barId }) {
+function BarDetail() {
   const [bar, setBar] = useState(null);
+  const {barId} = useParams();
 
   useEffect(() => {
     getBar(barId, setBar);
