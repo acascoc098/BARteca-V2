@@ -40,7 +40,7 @@ public class WebConfig implements WebMvcConfigurer {
     SecurityFilterChain filter(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/barteca/**", "/usuario/**", "/bar/**", "/reserva/**").permitAll()
+                        .requestMatchers("/barteca/**", "/usuario/**", "/bar/**", "/reserva/**", "/login/**").permitAll()
                 )
                 .exceptionHandling((exception) -> exception
                         .accessDeniedPage("/denegado"))
@@ -60,7 +60,11 @@ public class WebConfig implements WebMvcConfigurer {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("select username, password from usuario where username = ?");
+                .usersByUsernameQuery("select username, password from usuario where username = ?")
+                .authoritiesByUsernameQuery("select username "
+                                                + "from usuario "
+                                                + "where username = ?");
+;
     }
 
 }

@@ -1,8 +1,16 @@
 import React from "react"
 import { DataScroller } from 'primereact/datascroller';
 import { Link } from 'react-router-dom';
+import { getReservas } from "../Api";
 
-const ReservaList = ({ reservas }) => {
+import './ReservaList.css';
+
+const ReservaList = () => {
+    const [reservas, setReservas] = useState([]);
+
+    useEffect(() => {
+        getReservas(setReservas);
+    }, []);
 
     const itemTemplate = (reserva) => {
         return (

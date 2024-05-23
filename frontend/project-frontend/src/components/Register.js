@@ -73,9 +73,9 @@ const Register = () => {
             <Dialog visible={showMessage} onHide={() => setShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
                 <div className="flex align-items-center flex-column pt-6 px-3">
                     <i className="pi pi-check-circle" style={{ fontSize: '5rem', color: 'var(--green-500)' }}></i>
-                    <h5>Registration Successful!</h5>
+                    <h5>Registro existoso!</h5>
                     <p style={{ lineHeight: 1.5, textIndent: '1rem' }}>
-                        Your account is registered under name <b>{formData.nombre}</b> ; it'll be valid next 30 days without activation. Please check <b>{formData.correo}</b> for activation instructions.
+                        Tu cuenta con user: <b>{formData.username}</b> ha sido creada correctamente.
                     </p>
                 </div>
             </Dialog>
@@ -88,7 +88,7 @@ const Register = () => {
                             <Field name="nombre" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <InputText id="nombre" {...input} autoFocus className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
+                                        <InputText id="nombre" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
                                         <label htmlFor="nombre" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Nombre*</label>
                                     </span>
                                     {getFormErrorMessage(meta)}

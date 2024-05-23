@@ -26,7 +26,8 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-      <div className="card flex justify-content-center" onSubmit={handleLogin}>
+      <div className="card flex justify-content-center">
+        <form onSubmit={handleLogin}>
           <FloatLabel>
               <InputText id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
               <label htmlFor="username">Username</label>
@@ -37,7 +38,8 @@ const Login = ({ onLogin }) => {
               <label htmlFor="password">Password</label>
           </FloatLabel>
 
-          <Button label="Primary" text raised type='submit'/>
+          <Button label="Sign in" text raised type='submit'/>
+        </form>
       </div>
   )
 };
