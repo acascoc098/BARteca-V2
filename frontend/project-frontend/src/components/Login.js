@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { InputText } from "primereact/inputtext";
+import { FloatLabel } from "primereact/floatlabel";
+import { Button } from 'primereact/button';
+import { Password } from 'primereact/password';
 
 const Login = ({ onLogin }) => {
 
@@ -22,24 +26,20 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-        required
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
-  );
+      <div className="card flex justify-content-center" onSubmit={handleLogin}>
+          <FloatLabel>
+              <InputText id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+              <label htmlFor="username">Username</label>
+          </FloatLabel>
+          
+          <FloatLabel>
+              <Password value={password} onChange={(e) => setPassword(e.target.value)} feedback={false} tabIndex={1} toggleMask />
+              <label htmlFor="password">Password</label>
+          </FloatLabel>
+
+          <Button label="Primary" text raised type='submit'/>
+      </div>
+  )
 };
 
 export default Login;
