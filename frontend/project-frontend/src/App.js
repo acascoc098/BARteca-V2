@@ -25,7 +25,7 @@ function App() {
             <Route path='/' element={<Login onLogin={handleLogin}/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path="/bar" element={<BarList/>} />
-            <Route path="/reserva" element={<ReservaList value={reservas}/>}/>
+            <Route path="/reserva" element={<ReservaList/>}/>
             <Route path="/bar/:id" element={<BarDetail />} />
             <Route path="/reserva/:id" element={<ReservaDetail />} />
           </Routes>

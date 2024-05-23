@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { DataScroller } from 'primereact/datascroller';
 import { Link } from 'react-router-dom';
 import { getReservas } from "../Api/Api";
