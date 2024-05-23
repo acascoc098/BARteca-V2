@@ -1,7 +1,7 @@
 import React from "react"
 import { DataScroller } from 'primereact/datascroller';
 import { Link } from 'react-router-dom';
-import { getReservas } from "../Api";
+import { getReservas } from "../Api/Api";
 
 import './ReservaList.css';
 

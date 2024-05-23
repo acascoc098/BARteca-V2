@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getReserva } from '../Api';
+import { getReserva } from '../Api/Api';
 import { useParams } from 'react-router-dom';
 
 function ReservaDetail() {

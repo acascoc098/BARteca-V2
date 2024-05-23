@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getBar } from '../Api';
+import { getBar } from '../Api/Api';
 import { useParams } from 'react-router-dom';
 
 function BarDetail() {

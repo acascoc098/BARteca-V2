@@ -2,7 +2,7 @@ import React from "react"
 import { DataScroller } from 'primereact/datascroller';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getBares } from '../Api';
+import { getBares } from '../Api/Api';
 
 import './BarList.css';
 
