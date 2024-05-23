@@ -54,10 +54,22 @@ const getReservas = async (state) => {
 };
 
 const getReserva = async (id, setState) => {
-    const token = localStorage.getItem('token');
-    try {
-        const req = await axios.get(`${URL}/reserva/${id}`, {
-        headers: {
+    //const token = localStorage.getItem('token');
+    //try {
+        const req = await axios.get(`${URL}/reserva/${id}`);
+        
+        if (req.status === 200) {
+            console.log(req);
+            setState(req.data);
+        } else {
+            console.error('Error fetching data');
+            /*if (error.response && error.response.status === 401) {
+                window.location.href = "/login";
+            }*/
+        }
+    
+        //, {
+        /*headers: {
             'Authorization': `Bearer ${token}`
         },
         withCredentials: true
@@ -69,7 +81,7 @@ const getReserva = async (id, setState) => {
         if (error.response && error.response.status === 401) {
             window.location.href = "/login";
         }
-    }
+    }*/
 };
 
 export { getBares, getBar, getReservas, getReserva };
