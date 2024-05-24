@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
@@ -6,20 +6,17 @@ import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
 
-import './Register.css';
+import './Registro.css';
 
 const Register = () => {
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({
-        nombre : "",
-        username : "",
-        password : "",
-        correo : "",
-        telefono : ""
+        nombre: "",
+        username: "",
+        password: "",
+        correo: "",
+        telefono: ""
     });
-
-    useEffect(() => {
-    }, []);
 
     const validate = (data) => {
         let errors = {};
@@ -30,26 +27,23 @@ const Register = () => {
 
         if (!data.correo) {
             errors.correo = 'Correo es obligatorio';
-        }
-        else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.correo)) {
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.correo)) {
             errors.correo = 'Dirección de correo no válida. E.g. example@email.com';
         }
 
         if (!data.password) {
             errors.password = 'Password es obligatorio';
         }
-        
+
         if (!data.username) {
             errors.username = 'Usuario es obligatorio';
         }
 
         if (!data.telefono) {
             errors.telefono = 'Telefono es obligatorio';
-        }
-        else if (!/[0-9]{9}$/i.test(data.telefono)) {
+        } else if (!/[0-9]{9}$/i.test(data.telefono)) {
             errors.telefono = 'El número de teléfono debe tener 9 dígitos';
         }
-
 
         return errors;
     };
@@ -57,7 +51,6 @@ const Register = () => {
     const onSubmit = (data, form) => {
         setFormData(data);
         setShowMessage(true);
-
         form.restart();
     };
 
@@ -66,7 +59,7 @@ const Register = () => {
         return isFormFieldValid(meta) && <small className="p-error">{meta.error}</small>;
     };
 
-    const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus onClick={() => setShowMessage(false) } /></div>;
+    const dialogFooter = <div className="flex justify-content-center"><Button label='OK' className="p-button-text" autoFocus onClick={() => setShowMessage(false)} /></div>;
 
     return (
         <div className="form-demo">
@@ -83,7 +76,7 @@ const Register = () => {
             <div className="flex justify-content-center">
                 <div className="card">
                     <h5 className="text-center">Register</h5>
-                    <Form onSubmit={onSubmit} initialValues={{ nombre: '', correo: '', password: '', username: '', telefono: ''}} validate={validate} render={({ handleSubmit }) => (
+                    <Form onSubmit={onSubmit} initialValues={{ nombre: '', correo: '', password: '', username: '', telefono: '' }} validate={validate} render={({ handleSubmit }) => (
                         <form onSubmit={handleSubmit} className="p-fluid">
                             <Field name="nombre" render={({ input, meta }) => (
                                 <div className="field">
@@ -94,7 +87,7 @@ const Register = () => {
                                     {getFormErrorMessage(meta)}
                                 </div>
                             )} />
-                            
+
                             <Field name="username" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label">
@@ -119,7 +112,7 @@ const Register = () => {
                             <Field name="password" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <Password id='password' {...input} feedback={false} tabIndex={1} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} toggleMask />
+                                        <Password id="password" {...input} feedback={false} tabIndex={1} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} toggleMask />
                                         <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Password*</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
@@ -137,7 +130,7 @@ const Register = () => {
                                 </div>
                             )} />
 
-                            <Button type="submit" label="Submit" className="mt-2" />
+                            <Button label='Submit' type="submit" className="mt-2" />
                         </form>
                     )} />
                 </div>
