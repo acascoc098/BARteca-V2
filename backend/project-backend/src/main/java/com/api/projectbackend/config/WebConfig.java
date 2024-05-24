@@ -64,7 +64,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .authoritiesByUsernameQuery("select username "
                                                 + "from usuario "
                                                 + "where username = ?");
-;
+
     }
 
 }

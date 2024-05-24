@@ -19,7 +19,7 @@
 
 # INTRODUCCIÓN
 
-En esta parte tenemos la parte del backende del proyecto final, creado con Spring junto a un contenedor en Docker creado con MySql.
+En esta parte tenemos la parte del backend del proyecto final, creado con Spring junto a un contenedor en Docker creado con MySql.
 
 ## MODELOS
 
@@ -28,7 +28,7 @@ En esta parte creamos los modelos que luego serán tablas en la base de datos, e
 - @Entity
 - @Data
 
-Y en cada modelos tenemos sus campos, por ejemplo en usuario:
+Y en cada modelo tenemos sus campos, por ejemplo en usuario:
 
 ``` java
 @Entity
@@ -42,6 +42,9 @@ public class Usuario {
 
     @Column(length = 40, nullable = false)
     private String nombre;
+
+    @Column(length = 20, nullable = false)
+    private String username;
 
     @Column(length = 75, nullable = false)
     private String password;
@@ -73,9 +76,9 @@ También vamos como se hacen las relaciones, por ejemplo en el modelo de reserva
 Donde:
 
 - @ManyToOne -> Define una relcación de reserva con usuario de 1:M
-- @OneToOne -> Define una relación de rserva con bar de 1:1
+- @OneToOne -> Define una relación de reserva con bar de 1:1
 
-Además podemos dotarle a las comulnas de valor máximo, si puede ser null,...
+Además podemos dotarle a las columnas de valor máximo, si puede ser null,...
 
 ```java
     @Column(unique = true, length = 70, nullable = false)
@@ -92,7 +95,7 @@ public interface BarRepo extends JpaRepository<Bar, Long>{
 }
 ```
 
-Gracias a esto podemos pasar al siguiente apartado de controladores, dodne manejamos las peticiones HTTP gracias al repositorio.
+Gracias a esto podemos pasar al siguiente apartado de controladores, donde manejamos las peticiones HTTP gracias al repositorio.
 
 ## CONTROLADORES O SERVICIOS
 
@@ -160,9 +163,73 @@ Además, a la clase le indicamos que es un controlador y la primera parte de la 
 
 Estas peticiones se trabajan con los componentes de nuestro frontend.
 
+Además, contamos con una clase para la configuración, donde nos encontramos con:
+
+```java
+@EnableWebSecurity
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+
+    @Autowired 
+    DataSource dataSource;
+    
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
+    }
+
+    @Bean
+    BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    SecurityFilterChain filter(HttpSecurity http) throws Exception {
+        return http
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/barteca/**", "/usuario/**", "/bar/**", "/reserva/**", "/login/**").permitAll()
+                )
+                .exceptionHandling((exception) -> exception
+                        .accessDeniedPage("/denegado"))
+                .formLogin((formLogin) -> formLogin
+                        .permitAll())
+                .rememberMe(Customizer.withDefaults())
+                .logout((logout) -> logout
+                        .invalidateHttpSession(true)
+                        .logoutSuccessUrl("/")
+                        .permitAll())
+                .csrf((csrf) -> csrf.disable())
+                .cors(Customizer.withDefaults())
+                .build();
+    }
+
+    @Autowired
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select username, password from usuario where username = ?")
+                .authoritiesByUsernameQuery("select username "
+                                                + "from usuario "
+                                                + "where username = ?");
+
+    }
+
+}
+
+```
+
+Donde le indicamos que es una clase para la configuración y seguridad con:
+
+- @EnableWebSecurity
+- @Configuration
+
 ## Lista de rutas
 
-Para completar la aplicación, se definen una serie de end-points que serán completados en sucesivos sprints (un sprint en la metodología SCRUM de trabajo es una tarea que al completarla obtenemos un subproducto funcional).
+Para completar la aplicación, se definen una serie de end-points, idicados en los controladores, que serán completados en sucesivos sprints (un sprint en la metodología SCRUM de trabajo es una tarea que al completarla obtenemos un subproducto funcional).
 
 RUTA | VERBO | DATOS | COMENTARIOS
 -----|-------|-------|------------
