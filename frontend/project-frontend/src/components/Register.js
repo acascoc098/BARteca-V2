@@ -5,6 +5,7 @@ import { Button } from 'primereact/button';
 import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
+import { registerUser } from '../Api/Api';
 import './Registro.css';
 
 const Register = () => {
@@ -48,8 +49,10 @@ const Register = () => {
     };
 
     const onSubmit = (data, form) => {
+        console.log(data);
         setFormData(data);
         setShowMessage(true);
+        registerUser(data);
         form.restart();
     };
 

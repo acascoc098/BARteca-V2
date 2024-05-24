@@ -30,12 +30,10 @@
     width: 100%;
   }
   
-  /* Estilos de errores */
   .p-error {
     color: #f5222d;
   }
   
-  /* Estilos del mensaje de éxito */
   .dialog-success {
     display: flex;
     flex-direction: column;
