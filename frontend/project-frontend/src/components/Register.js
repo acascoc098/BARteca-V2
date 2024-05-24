@@ -5,7 +5,6 @@ import { Button } from 'primereact/button';
 import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
-
 import './Registro.css';
 
 const Register = () => {
@@ -59,7 +58,7 @@ const Register = () => {
         return isFormFieldValid(meta) && <small className="p-error">{meta.error}</small>;
     };
 
-    const dialogFooter = <div className="flex justify-content-center"><Button label='OK' className="p-button-text" autoFocus onClick={() => setShowMessage(false)} /></div>;
+    const dialogFooter = <div className="flex justify-content-center"><Button className="p-button-text" autoFocus onClick={() => setShowMessage(false)} /></div>;
 
     return (
         <div className="form-demo">
@@ -130,7 +129,7 @@ const Register = () => {
                                 </div>
                             )} />
 
-                            <Button label='Submit' type="submit" className="mt-2" />
+                            <Button type="submit" className="mt-2" />
                         </form>
                     )} />
                 </div>

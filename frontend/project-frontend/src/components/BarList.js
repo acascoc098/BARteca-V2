@@ -3,6 +3,9 @@ import { DataScroller } from 'primereact/datascroller';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getBares } from '../Api/Api';
+import 'primeflex/primeflex.css';  
+import 'primereact/resources/primereact.css';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
 
 import './BarList.css';
 import Calificacion from "./Calificacion";

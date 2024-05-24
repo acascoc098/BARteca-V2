@@ -1,5 +1,33 @@
-*{
+/* Estilos generales */
+.calificacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .calificacion .card {
+    margin-bottom: 10px;
+  }
+  
+  .calificacion p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Estilos de la calificación */
+  .p-rating {
     display: flex;
     justify-content: center;
-    align-content: center;
-}
+  }
+  
+  .p-rating .p-rating-cancel {
+    display: none; /* Oculta el icono de cancelar */
+  }
+  
+  /* Estilos de los íconos */
+  .p-rating .p-rating-item img {
+    width: 25px;
+    height: 25px;
+  }
+  

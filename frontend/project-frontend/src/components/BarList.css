@@ -1,20 +1,84 @@
-html {
-    font-size: 14px;
-}
-
-body {
-    font-family: var(--font-family);
-    font-weight: normal;
-    background: var(--surface-ground);
-    color: var(--text-color);
-    padding: 1rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.card {
-    background: var(--surface-card);
-    padding: 2rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
+/* Estilos generales */
+.bar-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Estilos de la lista de bares */
+  .bar-list .p-datascroller {
+    width: 100%;
+  }
+  
+  /* Estilos de los elementos de la lista */
+  .bar-list .p-datascroller .p-datascroller-content .col-12 {
+    margin-bottom: 20px;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .flex {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .flex.flex-column {
+    flex-direction: column;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .gap-4 {
+    gap: 4px;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .flex.flex-column.lg-flex-row.justify-content-between.align-items-center.xl-align-items-start.lg-flex-1.gap-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .flex.flex-column.align-items-center.lg-align-items-start.gap-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .flex.flex-column.lg-flex-row.align-items-center.xl-align-items-start.gap-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .flex.flex-column.lg-flex-row.align-items-center.xl-align-items-start.gap-3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .flex.flex-column.lg-flex-row.align-items-center.xl-align-items-start.gap-3 a:hover {
+    text-decoration: underline;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .font-bold {
+    font-weight: bold;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .text-900 {
+    color: #000000;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .calificacion {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .calificacion .pi-star {
+    color: #ffd700;
+  }
+  
+  .bar-list .p-datascroller .p-datascroller-content .calificacion .pi-star-empty {
+    color: #d3d3d3;
+  }
+  

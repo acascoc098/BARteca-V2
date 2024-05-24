@@ -3,7 +3,7 @@ import { Rating } from 'primereact/rating';
 import './TemplaceDemo.css';
 
 function Calificacion (prop) {
-    const [value, setValue] = useState(prop);
+    const [value, setValue] = useState(prop.value || 0);
     return (
     <>
       <div className="card flex justify-content-center">

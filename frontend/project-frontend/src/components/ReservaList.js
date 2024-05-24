@@ -14,9 +14,9 @@ const ReservaList = () => {
 
     const itemTemplate = (reserva) => {
         return (
-          <div className="col-12">
-            <Link to={`/bar/${reserva.id}`}>
-              <div className="text-2xl font-bold text-900">{reserva.fecha}</div>
+          <div>
+            <Link to={`/reserva/${reserva.id}`}>
+              <div>{reserva.fecha}</div>
             </Link>
           </div>
         );

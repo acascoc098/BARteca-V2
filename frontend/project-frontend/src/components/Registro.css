@@ -1,20 +1,78 @@
-.form-demo .card {
-    min-width: 450px;
-}
-.form-demo .card form {
-    margin-top: 2rem;
-}
-.form-demo .card .field {
-    margin-bottom: 1.5rem;
-}
-@media screen and (max-width: 960px) {
-    .form-demo .card {
-        width: 80%;
-    }
-}
-@media screen and (max-width: 640px) {
-    .form-demo .card {
-        width: 100%;
-        min-width: 0;
-    }
-}
+/* Estilos generales */
+.form-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+  }
+  
+  .card h5 {
+    margin-bottom: 20px;
+  }
+  
+  .field {
+    margin-bottom: 20px;
+  }
+  
+  .field .p-float-label {
+    width: 100%;
+  }
+  
+  .field .p-inputtext {
+    width: 100%;
+  }
+  
+  /* Estilos de errores */
+  .p-error {
+    color: #f5222d;
+  }
+  
+  /* Estilos del mensaje de éxito */
+  .dialog-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+  }
+  
+  .dialog-success .pi-check-circle {
+    font-size: 5rem;
+    color: var(--green-500);
+  }
+  
+  .dialog-success h5 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .dialog-success p {
+    line-height: 1.5;
+    text-indent: 1rem;
+  }
+  
+  /* Estilos de botones */
+  .p-button {
+    margin-top: 20px;
+  }
+  
+  .p-button:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  /* Estilos para el campo de contraseña */
+  .p-password-panel {
+    width: 100%;
+  }
+  
+  .p-password-panel .p-password-mask {
+    width: calc(100% - 3.5rem);
+  }
+  

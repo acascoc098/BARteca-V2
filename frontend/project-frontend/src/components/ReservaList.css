@@ -1,20 +1,38 @@
-html {
-    font-size: 14px;
-}
-
-body {
-    font-family: var(--font-family);
-    font-weight: normal;
-    background: var(--surface-ground);
-    color: var(--text-color);
-    padding: 1rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.card {
-    background: var(--surface-card);
-    padding: 2rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
+/* Estilos generales */
+.reserva-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Estilos de la lista de reservas */
+  .reserva-list .p-datascroller {
+    width: 100%;
+  }
+  
+  /* Estilos de los elementos de la lista */
+  .reserva-list .p-datascroller .p-datascroller-content div {
+    margin-bottom: 10px;
+  }
+  
+  .reserva-list .p-datascroller .p-datascroller-content div a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .reserva-list .p-datascroller .p-datascroller-content div a:hover {
+    text-decoration: underline;
+  }
+  
+  .reserva-list .p-datascroller .p-datascroller-content div:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Estilos del encabezado */
+  .reserva-list .p-datascroller-header {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
