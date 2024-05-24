@@ -1,0 +1,47 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login form {
+    width: 300px;
+  }
+  
+  .login .p-inputtext {
+    /*width: 100px;*/
+    width: calc(100% - 16px);
+  }
+  
+  .login .p-password {
+    width: 100%;
+  }
+  
+  .login .p-button {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .login .p-float-label {
+    width: 100%;
+    margin-left: 10px;
+  }
+  
+  .login .p-float-label label {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .login .p-inputtext::placeholder {
+    color: #999;
+  }
+  
+  .login .p-password .p-password-panel .p-password-mask {
+    width: calc(100% - 3.5rem);
+  }
+  
+  .login .p-password .p-password-panel .p-password-icon {
+    right: 10px;
+  }
+  

@@ -5,6 +5,7 @@ import { InputText } from "primereact/inputtext";
 import { FloatLabel } from "primereact/floatlabel";
 import { Button } from 'primereact/button';
 import { Password } from 'primereact/password';
+import './Login.css';
 
 const Login = ({ onLogin }) => {
     const navigate = useNavigate();

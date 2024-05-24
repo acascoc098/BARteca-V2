@@ -6,9 +6,12 @@ import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
 import { registerUser } from '../Api/Api';
+import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 
 const Register = () => {
+    const navigate = useNavigate();
+
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({
         nombre: "",
@@ -53,6 +56,7 @@ const Register = () => {
         setFormData(data);
         setShowMessage(true);
         registerUser(data);
+        navigate("/bar");
         form.restart();
     };
 
