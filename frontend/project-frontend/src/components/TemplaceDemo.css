@@ -15,17 +15,15 @@
     color: #666;
   }
   
-  /* Estilos de la calificación */
   .p-rating {
     display: flex;
     justify-content: center;
   }
   
   .p-rating .p-rating-cancel {
-    display: none; /* Oculta el icono de cancelar */
+    display: none;
   }
   
-  /* Estilos de los íconos */
   .p-rating .p-rating-item img {
     width: 25px;
     height: 25px;
