@@ -71,3 +71,78 @@
     width: calc(100% - 3.5rem);
   }
   
+  @media (max-width: 599px) {
+    .card {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .card h5 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .dialog-success .pi-check-circle {
+        font-size: 4rem;
+    }
+
+    .dialog-success h5 {
+        font-size: 1.5rem;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .p-button {
+        margin-top: 15px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .card {
+        width: 80%;
+        padding: 18px;
+    }
+
+    .card h5 {
+        font-size: 1.3rem;
+        margin-bottom: 18px;
+    }
+
+    .dialog-success .pi-check-circle {
+        font-size: 4.5rem;
+    }
+
+    .dialog-success h5 {
+        font-size: 1.7rem;
+        margin-top: 18px;
+        margin-bottom: 8px;
+    }
+
+    .p-button {
+        margin-top: 18px;
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        width: 400px;
+    }
+
+    .card h5 {
+        font-size: 1.5rem;
+    }
+
+    .dialog-success .pi-check-circle {
+        font-size: 5rem;
+    }
+
+    .dialog-success h5 {
+        font-size: 1.8rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .p-button {
+        margin-top: 20px;
+    }
+}

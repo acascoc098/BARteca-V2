@@ -65,7 +65,7 @@ const Register = () => {
         return isFormFieldValid(meta) && <small className="p-error">{meta.error}</small>;
     };
 
-    const dialogFooter = <div className="flex justify-content-center"><Button className="p-button-text" autoFocus onClick={() => setShowMessage(false)} /></div>;
+    const dialogFooter = <div className="flex justify-content-center"><Button className="p-button-text" label='OK' autoFocus onClick={() => setShowMessage(false)} /></div>;
 
     return (
         <div className="form-demo">
@@ -119,7 +119,7 @@ const Register = () => {
                                 <div className="field">
                                     <span className="p-float-label">
                                         <Password id="password" {...input} feedback={false} tabIndex={1} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} toggleMask />
-                                        <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Password*</label>
+                                        <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Contraseña*</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
                                 </div>
@@ -136,7 +136,14 @@ const Register = () => {
                                 </div>
                             )} />
 
-                            <Button type="submit" className="mt-2" />
+                            <Button type="submit" label='Registrame' className="mt-2" />
+                            <br></br>
+                            <br></br>
+
+                            ¿Ya tienes cuenta? <br></br>                
+                            <Button label="Sign In" text raised onClick={() => {
+                                navigate('/');
+                            }} />
                         </form>
                     )} />
                 </div>
