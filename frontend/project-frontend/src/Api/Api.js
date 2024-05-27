@@ -4,6 +4,12 @@ const URL = 'http://localhost:8080/barteca';
 
 const getBares = async (state) => {
   const token = localStorage.getItem('token'); // Obtener el token
+  if (!token) {
+    console.error('No token found, redirecting to login');
+    window.location.href = "/";
+    return;
+  }
+
   try {
     const req = await axios.get(URL + '/bar', {
       headers: {
@@ -15,11 +21,20 @@ const getBares = async (state) => {
     state(req.data);
   } catch (error) {
     console.error('Error fetching data:', error);
+    if (error.response && error.response.status === 401) {
+      window.location.href = "/";
+    }
   }
 };
 
 const getBar = async (id, setState) => {
   const token = localStorage.getItem('token');
+  if (!token) {
+    console.error('No token found, redirecting to login');
+    window.location.href = "/";
+    return;
+  }
+
   try {
       const req = await axios.get(`${URL}/bar/${id}`, {
       headers: {
@@ -32,13 +47,19 @@ const getBar = async (id, setState) => {
   } catch (error) {
       console.error('Error fetching data:', error);
       if (error.response && error.response.status === 401) {
-          window.location.href = "/login";
+          window.location.href = "/";
       }
   }
 };
 
 const getReservas = async (state) => {
   const token = localStorage.getItem('token'); // Obtener el token
+  if (!token) {
+    console.error('No token found, redirecting to login');
+    window.location.href = "/";
+    return;
+  }
+
   try {
     const req = await axios.get(URL + '/reserva', {
       headers: {
@@ -50,38 +71,35 @@ const getReservas = async (state) => {
     state(req.data);
   } catch (error) {
     console.error('Error fetching data:', error);
+    if (error.response && error.response.status === 401) {
+      window.location.href = "/";
+    }
   }
 };
 
 const getReserva = async (id, setState) => {
-    //const token = localStorage.getItem('token');
-    //try {
-        const req = await axios.get(`${URL}/reserva/${id}`);
-        
-        if (req.status === 200) {
-            console.log(req);
-            setState(req.data);
-        } else {
-            console.error('Error fetching data');
-            /*if (error.response && error.response.status === 401) {
-                window.location.href = "/login";
-            }*/
-        }
-    
-        //, {
-        /*headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        withCredentials: true
-        });
-        console.log(req);
-        setState(req.data);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        if (error.response && error.response.status === 401) {
-            window.location.href = "/login";
-        }
-    }*/
+  const token = localStorage.getItem('token');
+  if (!token) {
+    console.error('No token found, redirecting to login');
+    window.location.href = "/";
+    return;
+  }
+
+  try {
+      const req = await axios.get(`${URL}/reserva/${id}`, {
+      headers: {
+          'Authorization': `Bearer ${token}`
+      },
+      withCredentials: true
+      });
+      console.log(req);
+      setState(req.data);
+  } catch (error) {
+      console.error('Error fetching data:', error);
+      if (error.response && error.response.status === 401) {
+          window.location.href = "/";
+      }
+  }
 };
 
 const registerUser = async (data) => {

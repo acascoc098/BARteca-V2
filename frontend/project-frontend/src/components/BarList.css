@@ -78,4 +78,46 @@
   .bar-list .p-datascroller .p-datascroller-content .calificacion .pi-star-empty {
     color: #d3d3d3;
   }
+
+  @media (max-width: 599px) {
+    .bar-list {
+      padding: 20px;
+    }
+  
+    .bar-list .p-datascroller {
+      width: 90%;
+    }
+  
+    .bar-list .p-datascroller .p-datascroller-content .text-2xl {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (min-width: 600px) and (max-width: 899px) {
+    .bar-list {
+      padding: 40px;
+    }
+  
+    .bar-list .p-datascroller {
+      width: 95%;
+    }
+  
+    .bar-list .p-datascroller .p-datascroller-content .text-2xl {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .bar-list {
+      padding: 60px;
+    }
+  
+    .bar-list .p-datascroller {
+      width: 100%;
+    }
+  
+    .bar-list .p-datascroller .p-datascroller-content .text-2xl {
+      font-size: 1.5rem;
+    }
+  }
   

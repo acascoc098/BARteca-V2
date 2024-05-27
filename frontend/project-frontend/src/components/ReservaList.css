@@ -1,34 +1,86 @@
 .reserva-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.reserva-list .p-datascroller {
+  width: 100%;
+}
+
+.reserva-list .p-datascroller .p-datascroller-content div {
+  margin-bottom: 10px;
+}
+
+.reserva-list .p-datascroller .p-datascroller-content div a {
+  text-decoration: none;
+  color: #333;
+}
+
+.reserva-list .p-datascroller .p-datascroller-content div a:hover {
+  text-decoration: underline;
+}
+
+.reserva-list .p-datascroller .p-datascroller-content div:hover {
+  background-color: #f0f0f0;
+}
+.reserva-list .p-datascroller-header {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 599px) {
+  .reserva-list {
+    padding: 10px;
   }
-  
+
   .reserva-list .p-datascroller {
-    width: 100%;
+    width: 90%;
   }
-  
+
   .reserva-list .p-datascroller .p-datascroller-content div {
-    margin-bottom: 10px;
-  }
-  
-  .reserva-list .p-datascroller .p-datascroller-content div a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .reserva-list .p-datascroller .p-datascroller-content div a:hover {
-    text-decoration: underline;
-  }
-  
-  .reserva-list .p-datascroller .p-datascroller-content div:hover {
-    background-color: #f0f0f0;
+    margin-bottom: 5px;
   }
 
   .reserva-list .p-datascroller-header {
-    text-align: center;
-    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .reserva-list {
+    padding: 20px;
+  }
+
+  .reserva-list .p-datascroller {
+    width: 95%;
+  }
+
+  .reserva-list .p-datascroller .p-datascroller-content div {
+    margin-bottom: 8px;
+  }
+
+  .reserva-list .p-datascroller-header {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .reserva-list {
+    padding: 30px;
+  }
+
+  .reserva-list .p-datascroller {
+    width: 100%;
+  }
+
+  .reserva-list .p-datascroller .p-datascroller-content div {
     margin-bottom: 10px;
   }
-  
+
+  .reserva-list .p-datascroller-header {
+    font-size: 1.6rem;
+  }
+}

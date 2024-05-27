@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import { getBar } from '../Api/Api';
 import { useParams } from 'react-router-dom';
+import Calificacion from './Calificacion';
 
 function BarDetail() {
   const [bar, setBar] = useState(null);
-  const {barId} = useParams();
+  const barId = useParams();
+
+  console.log(barId.id);
 
   useEffect(() => {
-    getBar(barId, setBar);
-  }, [barId]);
+    getBar(barId.id, setBar);
+  }, [barId.id]);
 
   if (!bar) {
     return <div>Loading...</div>;
@@ -18,7 +21,7 @@ function BarDetail() {
     <div>
       <h1>{bar.nombre}</h1>
       <p>{bar.descripcion}</p>
-      <p>{bar.calificacion}</p>
+      <Calificacion value={bar.calificacion}/>
       <p>{bar.correo}</p>
     </div>
   );

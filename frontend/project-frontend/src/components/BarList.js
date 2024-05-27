@@ -18,6 +18,7 @@ const BarList = () => {
     }, []);
 
     const itemTemplateB = (bar) => {
+        console.log(bar.id);
         return (
             <div className="col-12">
                 <div className="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">

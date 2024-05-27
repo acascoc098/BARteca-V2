@@ -31,7 +31,6 @@ function Calificacion (prop) {
           }
         />
       </div>
-      <p>{value}</p>
     </>
   );
 }

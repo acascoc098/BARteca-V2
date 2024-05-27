@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom';
 
 function ReservaDetail() {
   const [reserva, setReserva] = useState(null);
-  const {reservaId} = useParams();
+  const reservaId = useParams();
 
   useEffect(() => {
-    getReserva(reservaId, setReserva);
-  }, [reservaId]);
+    getReserva(reservaId.id, setReserva);
+  }, [reservaId.id]);
 
   if (!reserva) {
     return <div>Loading...</div>;
@@ -16,8 +16,8 @@ function ReservaDetail() {
 
   return (
     <div>
-      <h1>{reserva.usuario}</h1>
-      <p>{reserva.bar}</p>
+      <h1>{reserva.usuario.nombre}</h1>
+      <p>{reserva.bar.nombre}</p>
       <p>{reserva.comensales}</p>
       <p>{reserva.fecha}</p>
       <p>{reserva.hora}</p>
