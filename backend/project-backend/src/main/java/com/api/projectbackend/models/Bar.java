@@ -28,6 +28,9 @@ public class Bar {
     
     @Column(length = 30)
     private String direccion;
+    
+    @Column
+    private String imagen;
 
     @Column(length =  2)
     private Integer calificacion;
