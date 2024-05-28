@@ -15,7 +15,7 @@ const ReservaList = () => {
     const itemTemplate = (reserva) => {
         return (
           <div>
-            <Link to={`/reserva/${reserva.id}`}>
+            <Link to={`/reservas/${reserva.id}`}>
               <div>{reserva.fecha}</div>
             </Link>
           </div>

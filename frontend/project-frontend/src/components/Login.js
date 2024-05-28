@@ -19,7 +19,7 @@ const Login = ({ onLogin }) => {
             const response = await axios.post('http://localhost:8080/login', { username, password });
             localStorage.setItem('token', response.data.token);
             onLogin();
-            navigate("/bar");
+            navigate("/bares");
         } catch (error) {
             console.error('Error logging in:', error);
         }

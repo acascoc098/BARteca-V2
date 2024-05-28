@@ -1,5 +1,6 @@
 import React from "react"
 import { DataScroller } from 'primereact/datascroller';
+
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getBares } from '../Api/Api';
@@ -25,7 +26,7 @@ const BarList = () => {
                         <div className="flex flex-column align-items-center lg:align-items-start gap-3">
                             <div className="flex flex-column gap-1">
                                 <img className="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" src={`${bar.imagen}`} alt={bar.nombre} />
-                                <Link to={`/bar/${bar.id}`}>
+                                <Link to={`/bares/${bar.id}`}>
                                     <div className="text-2xl font-bold text-900">{bar.nombre}</div>
                                 </Link>
                                 <Calificacion value={bar.calificacion}/>
@@ -38,7 +39,10 @@ const BarList = () => {
       };
 
     return (
-        <DataScroller value={bares} itemTemplate={itemTemplateB} rows={5} buffer={0.5} header='Bares' />
+        <>
+            <DataScroller value={bares} itemTemplate={itemTemplateB} rows={5} buffer={0.5} header='Bares' />
+            
+        </>
     );
 
 }

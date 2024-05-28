@@ -1,17 +1,95 @@
 import './App.css';
-import { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect, useReducer, useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import BarDetail from './components/BarDetail';
 import ReservaDetail from './components/ReservaDetail';
 import Login from './components/Login';
 import BarList from './components/BarList';
 import Register from './components/Register';
 import ReservaList from './components/ReservaList';
+import { SpeedDial } from 'primereact/speeddial';
+import { Tooltip } from 'primereact/tooltip';
+import { ScrollTop } from 'primereact/scrolltop';
 import 'primeflex/primeflex.css';  
 import 'primereact/resources/primereact.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primeicons/primeicons.css';
 
-function App() {
+//const AuthContext = createContext();
+
+const authReducer = (state, action) => {
+    switch (action.type) {
+        case 'LOGIN_SUCCESS':
+            return { ...state, isAuthenticated: true, user: action.payload.user, token: action.payload.token, loginError: null };
+        case 'LOGIN_FAILED':
+            return { ...state, isAuthenticated: false, user: null, token: null, loginError: action.payload };
+        case 'LOGOUT':
+            return { ...state, isAuthenticated: false, user: null, token: null, loginError: null };
+        case 'REGISTER_SUCCESS':
+            return { ...state, isAuthenticated: true, user: action.payload.user, token: action.payload.token, loginError: null };
+        case 'REGISTER_FAILED':
+            return { ...state, isAuthenticated: false, user: null, token: null, loginError: action.payload };
+        default:
+            throw new Error(`Unhandled action type: ${action.type}`);
+    }
+};
+
+function AppContent() {
+  const navigate = useNavigate();
+
+  const initialState = {
+      isAuthenticated: false,
+      user: null,
+      token: null,
+      loginError: null
+  };
+
+
+  const [state, dispatch] = useReducer(authReducer, initialState);
+
+  const toast = useRef(null);
+    const items = [
+        {
+            //label: 'Add',
+            icon: 'pi pi-pencil',
+            command: () => {
+                //toast.current.show({ severity: 'info', summary: 'Add', detail: 'Data Added' });
+            }
+        },
+        {
+            //label: 'Update',
+            icon: 'pi pi-refresh',
+            command: () => {
+                //toast.current.show({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
+            }
+        },
+        {
+            //label: 'Delete',
+            icon: 'pi pi-trash',
+            command: () => {
+                //toast.current.show({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
+            }
+        },
+        {
+            //label: 'Upload',
+            icon: 'pi pi-book',
+            command: () => {
+                navigate('/reserva');
+            }
+        },
+        {
+            //label: 'React Website',
+            icon: 'pi pi-sign-out',
+            command: () => {
+
+              localStorage.removeItem('token');
+              localStorage.removeItem('user');
+              dispatch({ type: 'LOGOUT' });
+              //toast.current.show({ severity: 'success', summary: 'Logout', detail: 'Sesión cerrada correctamente' });
+              navigate('/');
+            }
+        }
+    ];
 
   useEffect(() => {
     console.log('hola');
@@ -24,17 +102,31 @@ function App() {
   return (
     
       <div className="App">
-        <Router>
+        
           <Routes>
             <Route path='/' element={<Login onLogin={handleLogin}/>}/>
             <Route path='/register' element={<Register/>}/>
-            <Route path="/bar" element={<BarList/>} />
-            <Route path="/reserva" element={<ReservaList/>}/>
-            <Route path="/bar/:id" element={<BarDetail />} />
-            <Route path="/reserva/:id" element={<ReservaDetail />} />
+            <Route path="/bares" element={<div style={{ position: 'relative'}}>
+                                          <BarList/>
+                                          <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
+                                          <SpeedDial model={items} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
+                                          <ScrollTop threshold={100} behavior="smooth" />
+                                        </div>
+                                        } />
+            <Route path="/reservas" element={<ReservaList/>}/>
+            <Route path="/bares/:id" element={<BarDetail />} />
+            <Route path="/reservas/:id" element={<ReservaDetail />} />
           </Routes>
-        </Router>
+        
       </div>
+  );
+}
+
+function App() {
+  return (
+      <Router>
+          <AppContent />
+      </Router>
   );
 }
 

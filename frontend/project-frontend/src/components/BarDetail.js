@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getBar } from '../Api/Api';
 import { useParams } from 'react-router-dom';
 import Calificacion from './Calificacion';
+import './BarDetail.css';
 
 function BarDetail() {
   const [bar, setBar] = useState(null);
@@ -18,8 +19,9 @@ function BarDetail() {
   }
 
   return (
-    <div>
+    <div className='content'>
       <h1>{bar.nombre}</h1>
+      <img src={bar.imagen} width={200}/>
       <p>{bar.descripcion}</p>
       <Calificacion value={bar.calificacion}/>
       <p>{bar.correo}</p>
