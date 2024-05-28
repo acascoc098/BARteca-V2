@@ -50,31 +50,10 @@ function AppContent() {
   const toast = useRef(null);
     const items = [
         {
-            //label: 'Add',
-            icon: 'pi pi-pencil',
-            command: () => {
-                //toast.current.show({ severity: 'info', summary: 'Add', detail: 'Data Added' });
-            }
-        },
-        {
-            //label: 'Update',
-            icon: 'pi pi-refresh',
-            command: () => {
-                //toast.current.show({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
-            }
-        },
-        {
-            //label: 'Delete',
-            icon: 'pi pi-trash',
-            command: () => {
-                //toast.current.show({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
-            }
-        },
-        {
             //label: 'Upload',
             icon: 'pi pi-book',
             command: () => {
-                navigate('/reserva');
+                navigate('/reservas');
             }
         },
         {
@@ -85,7 +64,6 @@ function AppContent() {
               localStorage.removeItem('token');
               localStorage.removeItem('user');
               dispatch({ type: 'LOGOUT' });
-              //toast.current.show({ severity: 'success', summary: 'Logout', detail: 'Sesión cerrada correctamente' });
               navigate('/');
             }
         }

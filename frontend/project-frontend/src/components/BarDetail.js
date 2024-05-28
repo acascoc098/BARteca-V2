@@ -22,9 +22,12 @@ function BarDetail() {
     <div className='content'>
       <h1>{bar.nombre}</h1>
       <img src={bar.imagen} width={200}/>
-      <p>{bar.descripcion}</p>
+      <p>{bar.ciudad}, {bar.provincia}</p>
+      <p>{bar.direccion}</p>
       <Calificacion value={bar.calificacion}/>
+      Contacto:
       <p>{bar.correo}</p>
+      <p>{bar.telefono}</p>
     </div>
   );
 }
