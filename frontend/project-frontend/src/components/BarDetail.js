@@ -3,6 +3,7 @@ import { getBar } from '../Api/Api';
 import { useParams } from 'react-router-dom';
 import Calificacion from './Calificacion';
 import './BarDetail.css';
+import { Button } from 'primereact/button';
 
 function BarDetail() {
   const [bar, setBar] = useState(null);
@@ -28,6 +29,7 @@ function BarDetail() {
       Contacto:
       <p>{bar.correo}</p>
       <p>{bar.telefono}</p>
+      <Button label="Hacer reserva" className='mt-2' text raised onClick={() => {}}/>
     </div>
   );
 }

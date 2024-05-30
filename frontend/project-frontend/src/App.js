@@ -15,39 +15,9 @@ import 'primereact/resources/primereact.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primeicons/primeicons.css';
 
-//const AuthContext = createContext();
-
-const authReducer = (state, action) => {
-    switch (action.type) {
-        case 'LOGIN_SUCCESS':
-            return { ...state, isAuthenticated: true, user: action.payload.user, token: action.payload.token, loginError: null };
-        case 'LOGIN_FAILED':
-            return { ...state, isAuthenticated: false, user: null, token: null, loginError: action.payload };
-        case 'LOGOUT':
-            return { ...state, isAuthenticated: false, user: null, token: null, loginError: null };
-        case 'REGISTER_SUCCESS':
-            return { ...state, isAuthenticated: true, user: action.payload.user, token: action.payload.token, loginError: null };
-        case 'REGISTER_FAILED':
-            return { ...state, isAuthenticated: false, user: null, token: null, loginError: action.payload };
-        default:
-            throw new Error(`Unhandled action type: ${action.type}`);
-    }
-};
-
 function AppContent() {
   const navigate = useNavigate();
 
-  const initialState = {
-      isAuthenticated: false,
-      user: null,
-      token: null,
-      loginError: null
-  };
-
-
-  const [state, dispatch] = useReducer(authReducer, initialState);
-
-  const toast = useRef(null);
     const items = [
         {
             //label: 'Upload',
@@ -63,7 +33,7 @@ function AppContent() {
 
               localStorage.removeItem('token');
               localStorage.removeItem('user');
-              dispatch({ type: 'LOGOUT' });
+              //dispatch({ type: 'LOGOUT' });
               navigate('/');
             }
         }
@@ -73,16 +43,12 @@ function AppContent() {
     console.log('hola');
   }, []);
 
-  const handleLogin = () => {
-    console.log('Pasa');
-  };
-
   return (
     
       <div className="App">
         
           <Routes>
-            <Route path='/' element={<Login onLogin={handleLogin}/>}/>
+            <Route path='/' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path="/bares" element={<div style={{ position: 'relative'}}>
                                           <BarList/>
