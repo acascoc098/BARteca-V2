@@ -22,7 +22,7 @@ function BarDetail() {
   return (
     <div className='content'>
       <h1>{bar.nombre}</h1>
-      <img src={bar.imagen} width={200}/>
+      <img src={bar.imagen} alt='Imagen del bar' width={200}/>
       <p>{bar.ciudad}, {bar.provincia}</p>
       <p>{bar.direccion}</p>
       <Calificacion value={bar.calificacion}/>

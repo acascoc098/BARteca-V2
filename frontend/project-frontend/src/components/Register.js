@@ -6,14 +6,11 @@ import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
 import { registerUser } from '../Api/Api';
-import { useAuth } from '../Context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 
 const Register = () => {
     const navigate = useNavigate();
-
-    const {registe} = useAuth();
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({
@@ -58,7 +55,7 @@ const Register = () => {
         console.log(data);
         setFormData(data);
         setShowMessage(true);
-        register(data);
+        registerUser(data);
         navigate("/bares");
         form.restart();
     };

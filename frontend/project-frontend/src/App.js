@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useReducer, useRef } from 'react';
+import { useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import BarDetail from './components/BarDetail';
 import ReservaDetail from './components/ReservaDetail';
@@ -14,9 +14,11 @@ import 'primeflex/primeflex.css';
 import 'primereact/resources/primereact.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primeicons/primeicons.css';
+import { useAuth } from './Context/AuthProvider';
 
 function AppContent() {
   const navigate = useNavigate();
+  const {logout} = useAuth();
 
     const items = [
         {
@@ -31,9 +33,9 @@ function AppContent() {
             icon: 'pi pi-sign-out',
             command: () => {
 
-              localStorage.removeItem('token');
-              localStorage.removeItem('user');
-              //dispatch({ type: 'LOGOUT' });
+              /*localStorage.removeItem('token');
+              localStorage.removeItem('user');*/
+              logout();
               navigate('/');
             }
         }

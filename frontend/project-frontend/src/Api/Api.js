@@ -111,4 +111,13 @@ const registerUser = async (data) => {
   }
 };
 
-export { getBares, getBar, getReservas, getReserva, registerUser };
+const login = async (username, password) => {
+  try {
+    const response = await axios.post('http://localhost:8080/login', { username, password });
+    localStorage.setItem('token', response.data.token);
+  } catch (error) {
+      console.error('Error logging in:', error);
+  }
+}
+
+export { getBares, getBar, getReservas, getReserva, registerUser, login };
