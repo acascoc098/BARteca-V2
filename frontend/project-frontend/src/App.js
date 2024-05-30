@@ -23,6 +23,12 @@ function AppContent() {
     const items = [
         {
             //label: 'Upload',
+            icon: 'pi pi-shop',
+            command: () => {
+                navigate('/bares');
+            }
+        },{
+            //label: 'Upload',
             icon: 'pi pi-book',
             command: () => {
                 navigate('/reservas');
@@ -59,7 +65,13 @@ function AppContent() {
                                           <ScrollTop threshold={100} behavior="smooth" />
                                         </div>
                                         } />
-            <Route path="/reservas" element={<ReservaList/>}/>
+            <Route path="/reservas" element={<div style={{ position: 'relative'}}>
+                                          <ReservaList/>
+                                          <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
+                                          <SpeedDial model={items} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
+                                          <ScrollTop threshold={100} behavior="smooth" />
+                                        </div>
+                                        }/>
             <Route path="/bares/:id" element={<BarDetail />} />
             <Route path="/reservas/:id" element={<ReservaDetail />} />
           </Routes>
