@@ -18,6 +18,10 @@ const BarList = () => {
           getBares(setBares);
     }, []);
 
+    if (!bares) {
+        return <div>Loading...</div>;
+    }
+
     const itemTemplateB = (bar) => {
         return (
             <div className="col-12">

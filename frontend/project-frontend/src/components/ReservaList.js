@@ -22,6 +22,10 @@ const ReservaList = () => {
         );
       };
 
+    if (!reservas) {
+      return <div>Loading...</div>;
+    }
+
     return (
         <DataScroller value={reservas} itemTemplate={itemTemplate} rows={5} buffer={0.5} header='Reservas' />
     );
