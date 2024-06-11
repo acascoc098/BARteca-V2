@@ -8,20 +8,11 @@
     border-radius: 5px;
 }
 
-.bar-detail {
+.reserva-detail {
     margin: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .bar-image {
-    width: 200px;
-    margin-bottom: 10px;
-  }
-  
-  .contact-info {
-    margin-top: 20px;
   }
   
   .loading {
@@ -30,28 +21,16 @@
   }
   
   @media (max-width: 768px) {
-    .bar-detail {
+    .reserva-detail {
       margin: 10px;
       padding: 10px;
     }
-  
-    .bar-image {
-      width: 150px;
-    }
-  
-    .contact-info {
-      margin-top: 10px;
-    }
   }
-
+  
   @media (max-width: 480px) {
-    .bar-detail {
+    .reserva-detail {
       margin: 5px;
       padding: 5px;
-    }
-  
-    .bar-image {
-      width: 100px;
     }
   }
   

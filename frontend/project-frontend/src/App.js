@@ -76,8 +76,18 @@ function AppContent() {
                                         </div>
                                         }/>
             <Route path='/reservas/nueva' element={<ReservaAdd/>}/>
-            <Route path="/bares/:id" element={<BarDetail />} />
-            <Route path="/reservas/:id" element={<ReservaDetail />} />
+            <Route path="/bares/:id" element={<div style={{ position: 'relative'}}>
+                                          <BarDetail/>
+                                          <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
+                                          <SpeedDial model={items} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
+                                          <ScrollTop threshold={100} behavior="smooth" />
+                                        </div>} />
+            <Route path="/reservas/:id" element={<div style={{ position: 'relative'}}>
+                                          <ReservaDetail/>
+                                          <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
+                                          <SpeedDial model={items} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
+                                          <ScrollTop threshold={100} behavior="smooth" />
+                                        </div>} />
           </Routes>
         
       </div>

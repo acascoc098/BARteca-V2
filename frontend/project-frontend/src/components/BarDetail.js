@@ -19,19 +19,21 @@ function BarDetail() {
   }, [barId.id]);
 
   if (!bar) {
-    return <div>Loading...</div>;
+    return <div className='loading'>Loading...</div>;
   }
 
   return (
-    <div className='content'>
+    <div className='content bar-detail'>
       <h1>{bar.nombre}</h1>
-      <img src={bar.imagen} alt='Imagen del bar' width={200}/>
+      <img src={bar.imagen} alt='Imagen del bar' className='bar-image'/>
       <p>{bar.ciudad}, {bar.provincia}</p>
       <p>{bar.direccion}</p>
       <Calificacion value={bar.calificacion}/>
-      Contacto:
-      <p>{bar.correo}</p>
-      <p>{bar.telefono}</p>
+      <div className='contact-info'>
+        Contacto:
+        <p>{bar.correo}</p>
+        <p>{bar.telefono}</p>
+      </div>
       <Button label="Hacer reserva" className='mt-2' text raised onClick={() => {navigate('/reservas/nueva')}}/>
     </div>
   );

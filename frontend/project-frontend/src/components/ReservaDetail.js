@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getReserva } from '../Api/Api';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function ReservaDetail() {
   const [reserva, setReserva] = useState(null);
@@ -11,13 +11,15 @@ function ReservaDetail() {
   }, [reservaId.id]);
 
   if (!reserva) {
-    return <div>Loading...</div>;
+    return <div className='loading'>Loading...</div>;
   }
 
   return (
-    <div>
+    <div className='content reserva-detail'>
       <h1>{reserva.usuario.nombre}</h1>
-      <p>{reserva.bar.nombre}</p>
+      <Link to={`/bares/${reserva.bar.id}`}>
+        <div>{reserva.bar.nombre}</div>
+      </Link>
       <p>{reserva.comensales}</p>
       <p>{reserva.fecha}</p>
       <p>{reserva.hora}</p>
