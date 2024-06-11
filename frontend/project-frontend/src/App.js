@@ -15,6 +15,7 @@ import 'primereact/resources/primereact.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primeicons/primeicons.css';
 import { useAuth } from './Context/AuthProvider';
+import BardAdd from './components/BarAdd';
 
 function AppContent() {
   const navigate = useNavigate();
@@ -65,6 +66,7 @@ function AppContent() {
                                           <ScrollTop threshold={100} behavior="smooth" />
                                         </div>
                                         } />
+            <Route path='/bares/nuevo' element={<BardAdd/>}/>
             <Route path="/reservas" element={<div style={{ position: 'relative'}}>
                                           <ReservaList/>
                                           <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />

@@ -37,14 +37,14 @@ const BarList = () => {
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
-          </div>
         );
       };
 
     return (
         <>
-            <DataScroller value={bares} itemTemplate={itemTemplateB} rows={5} buffer={0.5} header='Bares' />
+            <DataScroller value={bares} itemTemplate={itemTemplateB} rows={100} buffer={0.5} header='Bares' />
             
         </>
     );

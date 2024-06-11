@@ -111,4 +111,22 @@ const registerUser = async (data) => {
   }
 };
 
-export { getBares, getBar, getReservas, getReserva, registerUser };
+const nuevoBar = async (data) => {
+  try {
+      const response = await axios.post(`${URL}/bar`, data);
+      console.log('Registro exitoso:', response.data);
+  } catch (error) {
+      console.error('Error registrando usuario:', error);
+  }
+};
+
+const nuevaReserva = async (data) => {
+  try {
+      const response = await axios.post(`${URL}/reserva`, data);
+      console.log('Registro exitoso:', response.data);
+  } catch (error) {
+      console.error('Error registrando usuario:', error);
+  }
+};
+
+export { getBares, getBar, getReservas, getReserva, registerUser, nuevoBar, nuevaReserva };
