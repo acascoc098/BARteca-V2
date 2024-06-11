@@ -37,7 +37,7 @@ const ReservaList = () => {
     }
 
     return (
-        <DataScroller value={reservas} itemTemplate={itemTemplate} rows={5} buffer={0.5} header='Reservas' />
+        <DataScroller value={reservas} itemTemplate={itemTemplate} rows={100} buffer={0.5} header='Reservas' />
     );
 
 }

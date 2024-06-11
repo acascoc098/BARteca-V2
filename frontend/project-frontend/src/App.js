@@ -16,6 +16,7 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primeicons/primeicons.css';
 import { useAuth } from './Context/AuthProvider';
 import BardAdd from './components/BarAdd';
+import ReservaAdd from './components/ReservaAdd';
 
 function AppContent() {
   const navigate = useNavigate();
@@ -74,6 +75,7 @@ function AppContent() {
                                           <ScrollTop threshold={100} behavior="smooth" />
                                         </div>
                                         }/>
+            <Route path='/reservas/nueva' element={<ReservaAdd/>}/>
             <Route path="/bares/:id" element={<BarDetail />} />
             <Route path="/reservas/:id" element={<ReservaDetail />} />
           </Routes>

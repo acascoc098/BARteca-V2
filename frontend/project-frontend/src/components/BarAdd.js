@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
-import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
-import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
 import { nuevoBar } from '../Api/Api';
 import { useNavigate } from 'react-router-dom';
-import './Registro.css';
+import './Registro.css';//Mismo formato de formulario
 
 const BarAdd = () => {
     const navigate = useNavigate();
