@@ -2,23 +2,25 @@ import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
-import { nuevaReserva } from '../Api/Api';
+import { getBarId, getUsuarioId, nuevaReserva } from '../Api/Api';
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';//Mismo formato de formulario
 
 const ReservaAdd = () => {
     const navigate = useNavigate();
+    let userid = getUsuarioId();
+    let barid = getBarId();
+    console.log(userid + '      ' + barid);
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({
         fecha: "",
         hora: "",
         comensales: "",
-        usuario_id: "",
-        bar_id: ""
+        usuario_id: userid,
+        bar_id: barid
     });
 
     const validate = (data) => {
@@ -38,14 +40,6 @@ const ReservaAdd = () => {
 
         if (!data.comensales) {
             errors.comensales = 'Comensales es obligatorio';
-        }
-        
-        if (!data.usuario_id) {
-            errors.usuario_id = 'Usuario es obligatorio';
-        }
-
-        if (!data.bar_id) {
-            errors.bar_id = 'Bar es obligatorio';
         }
 
         return errors;
@@ -118,7 +112,7 @@ const ReservaAdd = () => {
                             <Field name="usuario_id" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <InputText id="usuario_id" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
+                                        <InputText id="usuario_id" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} disabled />
                                         <label htmlFor="usuario_id" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Usuario*</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
@@ -128,7 +122,7 @@ const ReservaAdd = () => {
                             <Field name="bar_id" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label p-input-icon-right">
-                                        <InputText id="bar_id" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
+                                        <InputText id="bar_id" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} disabled />
                                         <label htmlFor="bar_id" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Bar*</label>
                                     </span>
                                     {getFormErrorMessage(meta)}

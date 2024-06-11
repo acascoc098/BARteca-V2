@@ -8,4 +8,6 @@ import com.api.projectbackend.models.Usuario;
 @Repository
 public interface UsuarioRepo extends JpaRepository <Usuario , Long>{
     public Usuario findByCorreo(String correo);
+
+    public Usuario findByUsername(String username);
 }

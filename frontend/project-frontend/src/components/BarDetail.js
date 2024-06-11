@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
-import { getBar } from '../Api/Api';
-import { useParams } from 'react-router-dom';
+import { getBar, setBar } from '../Api/Api';
+import { useNavigate, useParams } from 'react-router-dom';
 import Calificacion from './Calificacion';
 import './BarDetail.css';
 import { Button } from 'primereact/button';
 
 function BarDetail() {
-  const [bar, setBar] = useState(null);
+  const navigate = useNavigate();
+
+  const [bar, setBarr] = useState(null);
   const barId = useParams();
 
   console.log(barId.id);
 
   useEffect(() => {
-    getBar(barId.id, setBar);
+    getBar(barId.id, setBarr);
+    setBar(barId.id);
   }, [barId.id]);
 
   if (!bar) {
@@ -29,7 +32,7 @@ function BarDetail() {
       Contacto:
       <p>{bar.correo}</p>
       <p>{bar.telefono}</p>
-      <Button label="Hacer reserva" className='mt-2' text raised onClick={() => {}}/>
+      <Button label="Hacer reserva" className='mt-2' text raised onClick={() => {navigate('/reservas/nueva')}}/>
     </div>
   );
 }

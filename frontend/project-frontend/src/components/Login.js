@@ -6,6 +6,7 @@ import { Password } from 'primereact/password';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { setUsernamee } from '../Api/Api';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Login = () => {
         try {
             const response = await axios.post('http://localhost:8080/login', { username, password });
             localStorage.setItem('token', response.data.token);
+            setUsernamee(username);
             navigate("/bares");
         } catch (error) {
             console.error('Error logging in:', error);
