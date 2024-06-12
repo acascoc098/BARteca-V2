@@ -22,7 +22,7 @@ const Login = () => {
             localStorage.setItem('token', response.data.token);
             console.log(response.data.token);
             setUsernamee(username);
-            if (username) {
+            if (username && password) {
                 navigate('/bares');
             }
         } catch (error) {
