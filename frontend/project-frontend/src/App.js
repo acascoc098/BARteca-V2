@@ -17,6 +17,7 @@ import 'primeicons/primeicons.css';
 import { useAuth } from './Context/AuthProvider';
 import BardAdd from './components/BarAdd';
 import ReservaAdd from './components/ReservaAdd';
+import About from './components/About';
 
 function AppContent() {
   const navigate = useNavigate();
@@ -32,6 +33,12 @@ function AppContent() {
             icon: 'pi pi-book',
             command: () => {
                 navigate('/reservas');
+            }
+        },
+        {
+            icon: 'pi pi-question-circle',
+            command: () => {
+                navigate('/about');
             }
         },
         {
@@ -107,6 +114,12 @@ function AppContent() {
                                           <ReservaDetail/>
                                           <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
                                           <SpeedDial model={items3} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
+                                          <ScrollTop threshold={100} behavior="smooth" />
+                                        </div>} />
+            <Route path="/about" element={<div style={{ position: 'relative'}}>
+                                          <About/>
+                                          <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
+                                          <SpeedDial model={items2} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
                                           <ScrollTop threshold={100} behavior="smooth" />
                                         </div>} />
           </Routes>
