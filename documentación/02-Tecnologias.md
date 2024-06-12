@@ -29,6 +29,21 @@
 
    → ***PrimeReact***: es una librería de componentes de ***React***, esta nos facilita el uso de componentes generales y su diseño, como son botones, popups, inputs, etc. Con esto tenemos un desarrollo de interfaz más ágil y una creación de la misma más cómoda.
 
+   -> ***Email JS***
+
+   EmailJS es una biblioteca que facilita el envío de correos electrónicos desde aplicaciones JavaScript sin necesidad de un servidor backend. Aquí están sus principales características:
+
+   1. Facilidad de uso: Simplifica el envío de correos desde el front-end sin configurar un servidor SMTP.
+   1. Compatibilidad con servicios populares: Soporta Gmail, Outlook, Yahoo, y otros servicios SMTP.
+   1. Plantillas de correo: Permite crear y gestionar plantillas desde su panel de control.
+   1. Integración con formularios HTML: Facilita el envío del contenido de formularios a tu correo electrónico.
+   1. Seguridad: Maneja credenciales de servicios de correo de forma segura.
+   1. Soporte para archivos adjuntos: Permite enviar correos con archivos adjuntos.
+   1. Panel de control: Ofrece herramientas para ver el historial de correos y gestionar plantillas.
+   1. Compatibilidad con múltiples lenguajes: Puede integrarse con aplicaciones en diversos lenguajes mediante sus API.
+   1. Eventos y callbacks: Permite manejar eventos y realizar acciones adicionales tras el envío de correos.
+   1. Documentación completa: Proporciona ejemplos y guías detalladas para facilitar la implementación.
+
 ### ***BACKEND***
 
    [Enlace del backend](https://github.com/acascoc098/project-backend.git)

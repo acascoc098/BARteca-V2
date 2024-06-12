@@ -52,6 +52,21 @@ Andrea Castilla Cocera
 
    → ***PrimeReact***: es una librería de componentes de ***React***, esta nos facilita el uso de componentes generales y su diseño, como son botones, popups, inputs, etc. Con esto tenemos un desarrollo de interfaz más ágil y una creación de la misma más cómoda.
 
+   -> ***Email JS***
+
+   EmailJS es una biblioteca que facilita el envío de correos electrónicos desde aplicaciones JavaScript sin necesidad de un servidor backend. Aquí están sus principales características:
+
+   1. Facilidad de uso: Simplifica el envío de correos desde el front-end sin configurar un servidor SMTP.
+   1. Compatibilidad con servicios populares: Soporta Gmail, Outlook, Yahoo, y otros servicios SMTP.
+   1. Plantillas de correo: Permite crear y gestionar plantillas desde su panel de control.
+   1. Integración con formularios HTML: Facilita el envío del contenido de formularios a tu correo electrónico.
+   1. Seguridad: Maneja credenciales de servicios de correo de forma segura.
+   1. Soporte para archivos adjuntos: Permite enviar correos con archivos adjuntos.
+   1. Panel de control: Ofrece herramientas para ver el historial de correos y gestionar plantillas.
+   1. Compatibilidad con múltiples lenguajes: Puede integrarse con aplicaciones en diversos lenguajes mediante sus API.
+   1. Eventos y callbacks: Permite manejar eventos y realizar acciones adicionales tras el envío de correos.
+   1. Documentación completa: Proporciona ejemplos y guías detalladas para facilitar la implementación.
+
 ### ***BACKEND***
 
    [README del backend](./backend/project-backend/README.md)
@@ -134,22 +149,160 @@ Andrea Castilla Cocera
 
    1. Exportación: Permite exportar diagramas en múltiples formatos gráficos como PNG, SVG, y PDF, lo que facilita su inclusión en documentación y presentaciones.
 
-## **DIAGRAMAS**
+## ANÁLISIS
+
+### DIAGRAMAS DE PROYECTO FIN DE GRADO
 
 En estos diagramas mostramos como se comporta nuestra aplicación junto a la API.
 
-## DIAGRAMAS DE SECUENCIA
+#### DIAGRAMAS DE SECUENCIA
 
 ![Diagramas de secuencia](./documentación/diagramas/DSecuencia-V2.png)
 
-## DIAGRAMA DE CASO DE USO
+#### DIAGRAMA DE CASO DE USO
 
 ![Diagramas de casos de uso](./documentación/diagramas/diagrama-usos.png)
 
-## DIAGRAMA DE CLASES
+#### DIAGRAMA DE CLASES
 
 ![Diagramas de clase](./documentación/diagramas/image.png)
 
-## DIAGRAMA DE ARQUITECTURA
+#### DIAGRAMA DE ARQUITECTURA
 
 ![Diagrama de arquitectura](./documentación/diagramas/Diagrama-arquitectura.png)
+
+# IMPLEMENTACIÓN
+
+Aquí ponemos ejemplos de código:
+
+## CONFIGURACIÓN SPRING
+
+Aquí vemos la clase donde tenemos la configuración para el backend:
+
+```java
+    @Bean
+    SecurityFilterChain filter(HttpSecurity http) throws Exception {
+        return http
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/barteca/**", "/usuario/**", "/bar/**", "/reserva/**", "/login/**").permitAll()
+                )
+                .exceptionHandling((exception) -> exception
+                        .accessDeniedPage("/denegado"))
+                .formLogin((formLogin) -> formLogin
+                        .permitAll())
+                .rememberMe(Customizer.withDefaults())
+                .logout((logout) -> logout
+                        .invalidateHttpSession(true)
+                        .logoutSuccessUrl("/")
+                        .permitAll())
+                .csrf((csrf) -> csrf.disable())
+                .cors(Customizer.withDefaults())
+                .build();
+    }
+
+    @Autowired
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select username, password from usuario where username = ?")
+                .authoritiesByUsernameQuery("select username "
+                                                + "from usuario "
+                                                + "where username = ?");
+
+    }
+```
+
+## FRONTEND
+
+En la parte del frontend tenemos una clase para acceder a la api, para obtener los bares o reservas, por ejemplo:
+
+```js
+    const URL = 'http://localhost:8080/barteca';
+
+    const getBares = async (state) => {
+    const token = localStorage.getItem('token'); // Obtener el token
+    if (!token) {
+        console.error('No token found, redirecting to login');
+        window.location.href = "/";
+        return;
+    }
+
+    try {
+        const req = await axios.get(URL + '/bar', {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
+        withCredentials: true
+        });
+        console.log(req);
+        state(req.data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        if (error.response && error.response.status === 401) {
+        window.location.href = "/";
+        }
+    }
+    };
+```
+
+En esta clase implementamos además *axios*.
+
+Además nos encontramos con un ***AuthProvider***, donde vemos como se implementa el logout:
+
+```js
+const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('usuario');
+        dispatch({ type: 'LOGOUT' });
+    };
+```
+
+Para la parte del registro tenemos un componente donde llamamos a la siguiente función enviando los datos necesarios para registrar un usuario:
+
+```js
+const registerUser = async (data) => {
+  try {
+      const response = await axios.post(`${URL}/usuario`, data);
+      console.log('Registro exitoso:', response.data);
+  } catch (error) {
+      console.error('Error registrando usuario:', error);
+  }
+};
+```
+
+Para la parte de un nuevo bar vemos lo siguiente:
+
+```js
+const nuevoBar = async (data) => {
+  try {
+      const response = await axios.post(`${URL}/bar`, data);
+      console.log('Registro exitoso:', response.data);
+  } catch (error) {
+      console.error('Error registrando usuario:', error);
+  }
+};
+```
+
+Y la misma estructura de la función la podemos encontrar para las reservas.
+
+Por último, podemos ver la implementación de Email JS en el componente de la creación de reservas:
+
+```js
+const sendEmail = (form) => {
+    
+        emailjs
+          .sendForm('service_xxoz70p', 'template_tcjyzo6', form, {
+            publicKey: 'cOCPBrPWdhn-blN8F',
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+          );
+      };
+```
+
+Donde los datos de *.sendForm* los encontramos en la página, menos *form*.
