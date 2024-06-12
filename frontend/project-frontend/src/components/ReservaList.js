@@ -20,7 +20,7 @@ const ReservaList = () => {
                         <div className="flex flex-column align-items-center lg:align-items-center gap-3">
                             <div className="flex flex-column gap-1">
                                 <Link to={`/reservas/${reserva.id}`}>
-                                    <div className="text-2xl font-bold text-900">{reserva.bar.nombre}</div>
+                                    <div className="text-2xl font-bold text-900">{reserva.usuario}</div>
                                     <div className="text-2xl font-bold text-900">{reserva.fecha}</div>
                                     <div className="text-2xl font-bold text-900">{reserva.hora}</div>
                                 </Link>

@@ -16,7 +16,7 @@ function ReservaDetail() {
 
   return (
     <div className='content reserva-detail'>
-      <h1>{reserva.usuario.nombre}</h1>
+      <h1>{reserva.usuario}</h1>
       <Link to={`/bares/${reserva.bar.id}`}>
         <div>{reserva.bar.nombre}</div>
       </Link>

@@ -43,6 +43,15 @@ function AppContent() {
         }
     ];
     
+    const itemsadd = [
+        {
+            icon: 'pi pi-plus',
+            command: () => {
+                navigate('/bares/nuevo');
+            }
+        }
+    ];
+    
     const items2 = [
         {
             icon: 'pi pi-angle-double-left',
@@ -75,7 +84,7 @@ function AppContent() {
             <Route path="/bares" element={<div style={{ position: 'relative'}}>
                                           <BarList/>
                                           <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
-                                          <SpeedDial model={items} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
+                                          <SpeedDial model={[...items, ...itemsadd]} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
                                           <ScrollTop threshold={100} behavior="smooth" />
                                         </div>
                                         } />

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
-import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
@@ -11,7 +10,7 @@ import './Registro.css';//Mismo formato de formulario
 
 const ReservaAdd = () => {
     const navigate = useNavigate();
-    const [userId, setUserId] = useState(null);
+    /*const [userId, setUserId] = useState(null);
     const [barId, setBarId] = useState(null);
 
     useEffect(() => {
@@ -23,15 +22,17 @@ const ReservaAdd = () => {
         }
 
         fetchIds();
-    }, [])
+        console.log(userId);
+        console.log(barId);
+    }, [])*/
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({
         fecha: "",
         hora: "",
         comensales: "",
-        usuario_id: userId,
-        bar_id: barId
+        usuario_id: "",
+        bar_id: ""
     });
 
     const validate = (data) => {
@@ -87,7 +88,7 @@ const ReservaAdd = () => {
             <div className="flex justify-content-center">
                 <div className="card">
                     <h5 className="text-center">Nueva reserva</h5>
-                    <Form onSubmit={onSubmit} initialValues={{ fecha: '', hora: '', usuario_id: userId, bar_id: barId, comensales: '' }} validate={validate} render={({ handleSubmit }) => (
+                    <Form onSubmit={onSubmit} initialValues={{ fecha: '', hora: '', usuario_id: '', bar_id: '', comensales: '' }} validate={validate} render={({ handleSubmit }) => (
                         <form onSubmit={handleSubmit} className="p-fluid">
                             <Field name="fecha" render={({ input, meta }) => (
                                 <div className="field">
@@ -123,7 +124,7 @@ const ReservaAdd = () => {
                             <Field name="usuario_id" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <InputNumber id="usuario_id" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} disabled />
+                                        <InputText id="usuario_id" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
                                         <label htmlFor="usuario_id" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Usuario*</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
@@ -133,7 +134,7 @@ const ReservaAdd = () => {
                             <Field name="bar_id" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label p-input-icon-right">
-                                        <InputNumber id="bar_id" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} disabled />
+                                        <InputText id="bar_id" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
                                         <label htmlFor="bar_id" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Bar*</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
