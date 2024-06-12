@@ -7,6 +7,7 @@ import { classNames } from 'primereact/utils';
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';//Mismo formato de formulario
 import { nuevaReserva } from '../Api/Api';
+import emailjs from '@emailjs/browser';
 
 const ReservaAdd = () => {
     const navigate = useNavigate();
@@ -27,6 +28,23 @@ const ReservaAdd = () => {
         console.log(userId);
         console.log(barId);
     }, [])*/
+
+    const sendEmail = (form) => {
+    
+        emailjs
+          .sendForm('service_xxoz70p', 'template_tcjyzo6', form, {
+            publicKey: 'cOCPBrPWdhn-blN8F',
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+          );
+      };
+    
 
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({
@@ -64,6 +82,7 @@ const ReservaAdd = () => {
         setFormData(data);
         setShowMessage(true);
         nuevaReserva(data);
+        sendEmail(data);
         navigate("/reservas");
         form.restart();
     };
