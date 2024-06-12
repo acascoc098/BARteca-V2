@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
-import { getBarId, getUsuarioId, nuevaReserva } from '../Api/Api';
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';//Mismo formato de formulario
+import { nuevaReserva } from '../Api/Api';
 
 const ReservaAdd = () => {
     const navigate = useNavigate();
+
+    //Intento para coger el id de bar y de usuario
     /*const [userId, setUserId] = useState(null);
     const [barId, setBarId] = useState(null);
 

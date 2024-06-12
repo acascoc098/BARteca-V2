@@ -156,6 +156,7 @@ const nuevaReserva = async (data) => {
   }
 };
 
+//Intento para llegar al id de bar y de usuario
 let bar = 0;
 
 const setBar = (barId) => {

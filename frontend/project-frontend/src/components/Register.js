@@ -56,7 +56,7 @@ const Register = () => {
         setFormData(data);
         setShowMessage(true);
         registerUser(data);
-        navigate("/bares");
+        navigate("/");
         form.restart();
     };
 

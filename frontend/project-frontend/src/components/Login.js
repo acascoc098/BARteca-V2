@@ -20,8 +20,11 @@ const Login = () => {
         try {
             const response = await axios.post('http://localhost:8080/login', { username, password });
             localStorage.setItem('token', response.data.token);
+            console.log(response.data.token);
             setUsernamee(username);
-            navigate("/bares");
+            if (username) {
+                navigate('/bares');
+            }
         } catch (error) {
             console.error('Error logging in:', error);
         }
