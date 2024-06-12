@@ -28,6 +28,75 @@
     text-align: center;
     margin-top: 50px;
   }
+
+  .speeddial-bottom-rigth {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
+    z-index: 1000;
+  }
+  
+  .speeddial-bottom-rigth .p-speeddial {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .speeddial-bottom-rigth .p-speeddial-action {
+    margin-bottom: 8px;
+  }
+  
+  .speeddial-bottom-rigth .p-speeddial-button {
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .speeddial-bottom-rigth .p-speeddial-button:hover {
+    background-color: #fd81fd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .speeddial-bottom-rigth .p-speeddial-action-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .speeddial-bottom-rigth .p-speeddial-action-button:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .speeddial-bottom-rigth .p-tooltip {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .speeddial-bottom-rigth .p-tooltip-arrow {
+    color: #333;
+  }
+  
+  .speeddial-bottom-rigth .p-tooltip .p-tooltip-text {
+    margin: 0;
+  }
+  
+  .speeddial-bottom-rigth .p-tooltip {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .speeddial-bottom-rigth .p-tooltip.p-tooltip-active {
+    opacity: 1;
+  }
   
   @media (max-width: 768px) {
     .bar-detail {

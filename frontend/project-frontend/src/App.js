@@ -24,27 +24,39 @@ function AppContent() {
 
     const items = [
         {
-            //label: 'Upload',
             icon: 'pi pi-shop',
             command: () => {
                 navigate('/bares');
             }
         },{
-            //label: 'Upload',
             icon: 'pi pi-book',
             command: () => {
                 navigate('/reservas');
             }
         },
         {
-            //label: 'React Website',
             icon: 'pi pi-sign-out',
             command: () => {
-
-              /*localStorage.removeItem('token');
-              localStorage.removeItem('user');*/
               logout();
               navigate('/');
+            }
+        }
+    ];
+    
+    const items2 = [
+        {
+            icon: 'pi pi-angle-double-left',
+            command: () => {
+                navigate('/bares');
+            }
+        }
+    ];
+    
+    const items3 = [
+        {
+            icon: 'pi pi-angle-double-left',
+            command: () => {
+                navigate('/reservas');
             }
         }
     ];
@@ -79,13 +91,13 @@ function AppContent() {
             <Route path="/bares/:id" element={<div style={{ position: 'relative'}}>
                                           <BarDetail/>
                                           <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
-                                          <SpeedDial model={items} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
+                                          <SpeedDial model={items2} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
                                           <ScrollTop threshold={100} behavior="smooth" />
                                         </div>} />
             <Route path="/reservas/:id" element={<div style={{ position: 'relative'}}>
                                           <ReservaDetail/>
                                           <Tooltip target=".speeddial-top-rigth .p-speeddial-action" />
-                                          <SpeedDial model={items} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
+                                          <SpeedDial model={items3} direction="down" style={{ right: 0, bottom: 0 }} className="speeddial-top-rigth rigth-0 top-0" buttonClassName="p-button-help" />
                                           <ScrollTop threshold={100} behavior="smooth" />
                                         </div>} />
           </Routes>
