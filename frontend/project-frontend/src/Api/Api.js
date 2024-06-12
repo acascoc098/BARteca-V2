@@ -103,7 +103,7 @@ const getReserva = async (id, setState) => {
 };
 
 const getUser = async (username) => {
-  //console.log(username);
+  console.log(username);
 
   const token = localStorage.getItem('token');
   if (!token) {
@@ -152,7 +152,7 @@ const nuevaReserva = async (data) => {
       const response = await axios.post(`${URL}/reserva`, data);
       console.log('Registro exitoso:', response.data);
   } catch (error) {
-      console.error('Error registrando usuario:', error);
+      console.error('Error registrando usuario:');
   }
 };
 
@@ -180,7 +180,8 @@ const getUsername = () => {
 }
 
 const getUsuarioId = async () => {
-  let user = getUser(getUsername());
+  let username = getUsername();
+  let user = getUser(username);
   console.log(user);
   return user.id;
 }
