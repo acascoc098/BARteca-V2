@@ -425,11 +425,11 @@ En estos diagramas mostramos como se comporta nuestra aplicación junto a la API
 
 ![Diagrama de arquitectura](./documentación/diagramas/Diagrama-arquitectura.png)
 
-# IMPLEMENTACIÓN
+## IMPLEMENTACIÓN
 
 Aquí ponemos ejemplos de código:
 
-## CONFIGURACIÓN SPRING
+### CONFIGURACIÓN SPRING
 
 Aquí vemos la clase donde tenemos la configuración para el backend:
 
@@ -466,7 +466,7 @@ Aquí vemos la clase donde tenemos la configuración para el backend:
     }
 ```
 
-## FRONTEND
+### FRONTEND
 
 En la parte del frontend tenemos una clase para acceder a la api, para obtener los bares o reservas, por ejemplo:
 
@@ -560,3 +560,92 @@ const sendEmail = (form) => {
 ```
 
 Donde los datos de *.sendForm* los encontramos en la página, menos *form*.
+
+## CONCLUSIONES
+
+### COSAS QUE MEJORAR
+
+El cambio principal que me gustaría mejorar sería el funcionamiento de las reservas, ya que me gustaría añadir diferentes perfiles como pueden ser administrador y dueño, cada uno con sus diferentes funciones:
+
+-	Administrador: el es dios de la aplicación, este tiene los permisos para hacer todas las acciones de la aplicación y acceder a todas las páginas. Este podría acceder a las reservas para hacerlas o gestionarlas, ya que al añadir un perfil de dueño del bar surgiría la opción de aceptar o no la reserva, esto lo comentaré a continuación. Además, podría añadir bares o eliminar, al igual que con las reservas y con los usuarios.
+-	Dueño: este perfil tendría las opciones de añadir bar, ya que si te registras como dueño significa que quieres dar de alta a tu bar o bares. También, tendría la opción de aceptar o no las reservas de su bar que van haciendo los clientes.
+
+En consecuencia, a esto, el perfil del usuario quedaría simplificado a ver el listado de los bares y hacer una reserva, esperando a la respuesta del dueño. Por otro lado, la opción de enviar un correo podría saltarse ya que la respuesta sería por parte del perfil de dueño, aunque se podría quedar como aviso a este.
+Por otro lado, sería interesante integrar una búsqueda por filtros, esto ayudaría en el listado a filtrar los bares según su nombre o dirección. Esto ayudaría al perfil de usuario al ser una búsqueda más exhaustiva de lo que necesita.
+
+Por último, me gustaría refactorizar algunas partes del código, como es el *AuthProvider* del frontend, para que cumplan su función correctamente y que la aplicación sea más efectiva y, de cierta manera, más segura.
+
+
+### PROBLEMAS ENCONTRADOS
+
+En el camino me he encontrado diferentes problemas, que comento a continuación:
+- Spring: 
+    - En la parte de configuración he tenido diferentes problemas debido a factores como el logeo en ***Spring***, además de problemas del navegador como es el protocolo CORS, esto lo he ido solucionando con la clase de configuración, donde implemento el código necesario para esto.
+- Docker:
+    - Con Docker el único problema que he tenido ha sido al levantar los contenedores, ya que el contenedor principal no llegaba a levantarse debido a un problema con el archivo *.sql*, el problema venía debido a los permios que tenía sobre este archivo, esto lo solución utilizando el comando: 
+    ```sh
+        chmod 644 setup.sql
+    ```
+- Frontend:
+    - En este he tenido problemas en la creación de las reservas, que no he llegado a solucionar, ya que al crearlas nos pide el id del bar y del usuario, el funcionamiento sería que no lo pidiese en el formulario ya que tendría que obtener el id del usuario logeado y el id del bar seleccionado, ya que al crear una reserva se debe estar en el detalle de un bar, es decir, se debe de hacer click en un bar para ir al detalle y así hacer la reserva en ese bar
+
+## CONCLUSIONES
+
+### COSAS QUE MEJORAR
+
+El cambio principal que me gustaría mejorar sería el funcionamiento de las reservas, ya que me gustaría añadir diferentes perfiles como pueden ser administrador y dueño, cada uno con sus diferentes funciones:
+
+-	Administrador: el es dios de la aplicación, este tiene los permisos para hacer todas las acciones de la aplicación y acceder a todas las páginas. Este podría acceder a las reservas para hacerlas o gestionarlas, ya que al añadir un perfil de dueño del bar surgiría la opción de aceptar o no la reserva, esto lo comentaré a continuación. Además, podría añadir bares o eliminar, al igual que con las reservas y con los usuarios.
+-	Dueño: este perfil tendría las opciones de añadir bar, ya que si te registras como dueño significa que quieres dar de alta a tu bar o bares. También, tendría la opción de aceptar o no las reservas de su bar que van haciendo los clientes.
+
+En consecuencia, a esto, el perfil del usuario quedaría simplificado a ver el listado de los bares y hacer una reserva, esperando a la respuesta del dueño. Por otro lado, la opción de enviar un correo podría saltarse ya que la respuesta sería por parte del perfil de dueño, aunque se podría quedar como aviso a este.
+Por otro lado, sería interesante integrar una búsqueda por filtros, esto ayudaría en el listado a filtrar los bares según su nombre o dirección. Esto ayudaría al perfil de usuario al ser una búsqueda más exhaustiva de lo que necesita.
+
+Por último, me gustaría refactorizar algunas partes del código, como es el *AuthProvider* del frontend, para que cumplan su función correctamente y que la aplicación sea más efectiva y, de cierta manera, más segura.
+
+
+### PROBLEMAS ENCONTRADOS
+
+En el camino me he encontrado diferentes problemas, que comento a continuación:
+- Spring: 
+    - En la parte de configuración he tenido diferentes problemas debido a factores como el logeo en ***Spring***, además de problemas del navegador como es el protocolo CORS, esto lo he ido solucionando con la clase de configuración, donde implemento el código necesario para esto.
+- Docker:
+    - Con Docker el único problema que he tenido ha sido al levantar los contenedores, ya que el contenedor principal no llegaba a levantarse debido a un problema con el archivo *.sql*, el problema venía debido a los permios que tenía sobre este archivo, esto lo solución utilizando el comando: 
+    ```sh
+        chmod 644 setup.sql
+    ```
+- Frontend:
+    - En este he tenido problemas en la creación de las reservas, que no he llegado a solucionar, ya que al crearlas nos pide el id del bar y del usuario, el funcionamiento sería que no lo pidiese en el formulario ya que tendría que obtener el id del usuario logeado y el id del bar seleccionado, ya que al crear una reserva se debe estar en el detalle de un bar, es decir, se debe de hacer click en un bar para ir al detalle y así hacer la reserva en ese bar
+
+## BIBLIOGRAFÍA
+
+Este proyecto ha sido inspiración de proyectos hechos en clase, algunos proyectos que me han inspirado son:
+
+- [Proyecto de videojuegos hecho con React (Desarrollo de Interfaces)](https://github.com/acascoc098/videojuegos/tree/dev)
+- [Proyecto sobre una zapatería hecho con Spring (Acceso a Datos)](https://github.com/acascoc098/zapateria/tree/dev)
+- [Proyecto sobre bares hecho con Android (Programación Multimedia y Dispositivos Móviles)](https://github.com/acascoc098/MVVM_PP/tree/retrofit)
+
+A continuación, indico algunas páginas que me han ayudado en la creación del proyecto:
+
+[https://www.youtube.com/watch?v=jn1vllka2uw](https://www.youtube.com/watch?v=jn1vllka2uw)
+
+[https://www.discoduroderoer.es/spring-boot-hola-mundo-con-visual-studio-code/](https://www.discoduroderoer.es/spring-boot-hola-mundo-con-visual-studio-code/)
+
+[https://www.baeldung.com/spring-boot-react-crud](https://www.baeldung.com/spring-boot-react-crud)
+
+[https://primereact.org/](https://primereact.org/)
+
+[https://www.youtube.com/watch?v=SscmIl9IqDc&ab_channel=onthecode](https://www.youtube.com/watch?v=SscmIl9IqDc&ab_channel=onthecode)
+
+## REPOSITORIOS
+
+Estos son los enlaces al repositorio y sus partes:
+
+[-> Proyecto](https://github.com/acascoc098/BARteca-V2.git)
+
+[-> Backend](https://github.com/acascoc098/BARteca-V2/tree/dev/backend/project-backend)
+
+[-> Frontend](https://github.com/acascoc098/BARteca-V2/tree/dev/frontend/project-frontend)
+
+[-> Documentación](https://github.com/acascoc098/BARteca-V2/tree/dev/documentaci%C3%B3n)
+
