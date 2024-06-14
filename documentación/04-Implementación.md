@@ -2,7 +2,7 @@
 
 Aquí ponemos ejemplos de código:
 
-## BCKEND
+## BACKEND
 
 Aquí vemos la clase donde tenemos la configuración para el backend:
 
