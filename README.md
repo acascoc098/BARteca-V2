@@ -31,7 +31,7 @@ Andrea Castilla Cocera
 
    → ***React***
 
-   Es una biblioteca de JavaScript desarrollada por Facebook que se utilizapara construir interfaces de usuario interactivas y reutilizables. Es una de lasbibliotecas más populares y ampliamente utilizadas para el desarrollo de aplicaciones web.
+   Es una biblioteca de JavaScript desarrollada por Facebook que se utiliza para construir interfaces de usuario interactivas y reutilizables. Es una de las bibliotecas más populares y ampliamente utilizadas para el desarrollo de aplicaciones web.
    Algunas de las características de ***React*** son :
 
    1. Componentes reutilizables: ***React*** permite construir interfaces de usuariodivididas en componentes reutilizables así cada componente encapsula su propio estado y lógica, lo que nos facilita su reutilización en diferentes partes de una aplicación.
@@ -277,7 +277,7 @@ Andrea Castilla Cocera
    - src/test -> Pruebas del proyecto
 
    En esta aplicación veremos los modelos, repositorios y controladores, estó lo tengo indicado en la documentación del backen: 
-   [README del backend](./../backend/project-backend/README.md)
+   [README del backend](./../BARteca-V2/backend/project-backend/README.md)
 
    → ***Docker***
 
